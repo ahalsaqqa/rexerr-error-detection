@@ -20,6 +20,16 @@ def test_parse_sampled():
         "change_severity", "add_repetitions", "add_medical_device"]
 
 
+def test_fold_contradictions():
+    from rexerr.io import fold_contradictions
+    p = np.zeros((2, len(NATIVE)), dtype=np.float32)
+    p[0, NATIVE.index("add_contradictions")] = 1
+    p[1, NATIVE.index("add_typo")] = 1
+    q = fold_contradictions(p)
+    assert q[0, NATIVE.index("false_prediction")] == 1 and q[:, NATIVE.index("add_contradictions")].sum() == 0
+    assert q[1].sum() == 1 and p[0, NATIVE.index("add_contradictions")] == 1  # input left unchanged
+
+
 def test_group6_is_logical_or():
     y = np.zeros((1, len(NATIVE)))
     y[0, NATIVE.index("add_typo")] = 1
