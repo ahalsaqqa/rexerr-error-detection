@@ -4,8 +4,9 @@ Report task: input = report text, output = 12 native ReXErr error types.
 Sentence task (localization): input = (sentence, full report), output = the
 error type of that sentence (all zeros if the sentence is correct).
 
-Checkpoints are written to --out_dir and training resumes automatically, so a
-disconnected Colab/Kaggle session can simply be re-run.
+Checkpoints are written to --ckpt_dir (default: --out_dir) and training resumes automatically from them, so
+a disconnected session can simply be re-run. On Colab, put them on local disk: files deleted from a mounted
+Google Drive go to its trash, which counts toward the storage quota.
 
 usage: python scripts/train_encoder.py --data_dir DATA --model dmis-lab/biobert-v1.1 --seed 0 \
            --out_dir results/runs/biobert_s0
@@ -168,6 +169,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data_dir", required=True)
     ap.add_argument("--out_dir", required=True)
+    ap.add_argument("--ckpt_dir", default=None, help="where checkpoints go (default: --out_dir)")
     ap.add_argument("--model", default="dmis-lab/biobert-v1.1")
     ap.add_argument("--task", choices=["report", "sentence"], default="report")
     ap.add_argument("--label_source", choices=["sentence", "sampled"], default="sentence")
@@ -191,6 +193,8 @@ def main():
     ap.add_argument("--max_steps", type=int, default=-1, help="debug only")
     args = ap.parse_args()
 
+    ckpt_dir = args.ckpt_dir or args.out_dir
+    os.makedirs(ckpt_dir, exist_ok=True)
     t0 = time.time()
     set_seed(args.seed)
     # bf16 on Ampere or newer GPUs (L4, A100, H100, G4); fp16 on T4
@@ -230,7 +234,7 @@ def main():
 
     total_steps = args.max_steps if args.max_steps > 0 else int(steps_per_epoch * args.epochs)
     targs = training_arguments(
-        output_dir=args.out_dir, seed=args.seed, data_seed=args.seed,
+        output_dir=ckpt_dir, seed=args.seed, data_seed=args.seed,
         num_train_epochs=args.epochs, max_steps=args.max_steps, learning_rate=args.lr,
         per_device_train_batch_size=args.batch_size, per_device_eval_batch_size=args.batch_size * 2,
         gradient_accumulation_steps=args.grad_accum, warmup_steps=max(1, int(0.1 * total_steps)),
@@ -244,7 +248,7 @@ def main():
     trainer = Trainer(model=model, args=targs, train_dataset=ds["train"], eval_dataset=ds["val"],
                       data_collator=Collator(tok.pad_token_id), compute_metrics=compute_metrics,
                       callbacks=[EarlyStoppingCallback(early_stopping_patience=args.patience)])
-    resume = bool(glob.glob(os.path.join(args.out_dir, "checkpoint-*")))
+    resume = bool(glob.glob(os.path.join(ckpt_dir, "checkpoint-*")))
     train_out = trainer.train(resume_from_checkpoint=True if resume else None)
 
     preds = {}
@@ -270,7 +274,7 @@ def main():
     }
     save_predictions(args.out_dir, "val", va, Yva, preds["val"])
     save_predictions(args.out_dir, "test", te, Yte, preds["test"], meta)
-    for ck in glob.glob(os.path.join(args.out_dir, "checkpoint-*")):  # keep Drive small
+    for ck in glob.glob(os.path.join(ckpt_dir, "checkpoint-*")):  # optimizer states are not needed any more
         import shutil
         shutil.rmtree(ck, ignore_errors=True)
     print(f"[done] {args.out_dir} best val f1_macro={trainer.state.best_metric} ({time.time() - t0:.0f}s)")

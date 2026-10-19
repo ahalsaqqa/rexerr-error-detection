@@ -173,7 +173,9 @@ def train(name, model, extra=""):
     if os.path.exists(f"{out}/preds_test.npz"):
         print(f"[skip] {name} already finished"); return
     t = time.time()
-    run(f"python scripts/train_encoder.py --data_dir {shlex.quote(DATA)} --out_dir {shlex.quote(out)} "
+    # Colab: checkpoints on local disk, because files deleted from Drive fill its trash (about 10 GB per run)
+    ckpt = f" --ckpt_dir /tmp/ckpt/{name}" if IN_COLAB else ""
+    run(f"python scripts/train_encoder.py --data_dir {shlex.quote(DATA)} --out_dir {shlex.quote(out)}{ckpt} "
         f"--model {model} --epochs {EPOCHS} --batch_size {max(1, BATCH_SIZE // N_GPU)} {extra}", name)
     print(f"[time] {name}: {(time.time() - t) / 60:.1f} min")
 
