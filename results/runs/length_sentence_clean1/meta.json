@@ -1,0 +1,21 @@
+{
+  "model": "length",
+  "family": "baseline",
+  "task": "report",
+  "seed": 0,
+  "label_source": "sentence",
+  "include_clean": 1,
+  "n_train": 402785,
+  "runtime_sec": 36.49542808532715,
+  "args": {
+    "data_dir": "DATA",
+    "runs_dir": "results/runs",
+    "model": "length",
+    "label_source": "sentence",
+    "include_clean": 1,
+    "max_train_studies": null,
+    "C": 4.0,
+    "max_features": 300000,
+    "tag": ""
+  }
+}

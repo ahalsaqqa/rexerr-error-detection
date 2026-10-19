@@ -1,0 +1,22 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "family": "llm_zeroshot",
+  "task": "report",
+  "seed": 0,
+  "label_source": "sentence",
+  "include_clean": 1,
+  "n_test": 5416,
+  "json_parse_rate": 0.9994460856720827,
+  "runtime_sec": 867.5566577911377,
+  "args": {
+    "data_dir": "/content/job",
+    "out_dir": "/content/runs/llm_qwen3-8b",
+    "model": "Qwen/Qwen3-8B",
+    "n_studies": 0,
+    "batch_size": 16,
+    "max_new_tokens": 80,
+    "load_in_4bit": 0,
+    "seed": 0
+  },
+  "gpu": "NVIDIA A100-SXM4-40GB"
+}

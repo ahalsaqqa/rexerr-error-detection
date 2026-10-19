@@ -1,0 +1,21 @@
+{
+  "model": "tfidf",
+  "family": "baseline",
+  "task": "report",
+  "seed": 0,
+  "label_source": "sentence",
+  "include_clean": 1,
+  "n_train": 402785,
+  "runtime_sec": 6136.327709913254,
+  "args": {
+    "data_dir": "/tmp/rexerr_data",
+    "runs_dir": "/kaggle/working/rexerr_experiments/runs",
+    "model": "tfidf",
+    "label_source": "sentence",
+    "include_clean": 1,
+    "max_train_studies": null,
+    "C": 4.0,
+    "max_features": 300000,
+    "tag": ""
+  }
+}

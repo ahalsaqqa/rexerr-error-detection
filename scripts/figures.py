@@ -43,7 +43,7 @@ def label_agreement(audit, out):
         ax.text(v + 0.01, i, f"{v:.0%}", va="center", color=INK_2)
     ax.set_yticks(y, [r[0] for r in rows])
     ax.set_xlim(0, 1.08)
-    ax.xaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
+    ax.xaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0, decimals=0))
     ax.set_xlabel("Sampled errors confirmed by sentence-level annotation (test split)")
     ax.grid(axis="y", visible=False)
     fig.savefig(out)
@@ -68,7 +68,7 @@ def per_type_f1(summary, out, other_key=None):
     ax.set_xlim(0, 1.02)
     ax.set_xlabel("AUPRC per error type (official test split)")
     ax.grid(axis="y", visible=False)
-    ax.legend(loc="lower right")
+    ax.legend(loc="lower left")  # the left half is empty because AUPRC > 0.5 for every type
     fig.savefig(out)
     plt.close(fig)
 
@@ -102,7 +102,7 @@ def ppv_vs_prevalence(summary, out):
     ax.text(0.04, 0.03, "reported\nerror rate", ha="center", va="bottom", color=INK_2, fontsize=6.5)
     ax.set_xlabel("True prevalence of reports with errors")
     ax.set_ylabel("Positive predictive value")
-    ax.xaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
+    ax.xaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0, decimals=0))
     ax.set_ylim(0, 1)
     ax.legend(loc="lower right")
     fig.savefig(out)

@@ -1,0 +1,22 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "family": "llm_zeroshot",
+  "task": "report",
+  "seed": 0,
+  "label_source": "sentence",
+  "include_clean": 1,
+  "n_test": 5416,
+  "json_parse_rate": 1.0,
+  "runtime_sec": 535.2522892951965,
+  "args": {
+    "data_dir": "/tmp/rexerr_data",
+    "out_dir": "/content/drive/MyDrive/rexerr_experiments/runs/llm_qwen2.5-7b",
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "n_studies": 0,
+    "batch_size": 16,
+    "max_new_tokens": 80,
+    "load_in_4bit": 0,
+    "seed": 0
+  },
+  "gpu": "NVIDIA A100-SXM4-40GB"
+}

@@ -24,6 +24,7 @@ from rexerr.labels import GROUP6, GROUP6_DISPLAY, NATIVE, NATIVE_DISPLAY, group6
 DISPLAY = {
     "dmis-lab/biobert-v1.1": "BioBERT v1.1",
     "bert-base-cased": "BERT-base (cased)",
+    "google-bert/bert-base-cased": "BERT-base (cased)",
     "bert-base-uncased": "BERT-base (uncased)",
     "emilyalsentzer/Bio_ClinicalBERT": "Bio+ClinicalBERT",
     "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext": "BiomedBERT (PubMedBERT)",

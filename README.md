@@ -16,6 +16,32 @@ deployment:
 | Baselines | Report length + LR, TF-IDF + LR, seven encoders (BioBERT, BERT, Bio+ClinicalBERT, BiomedBERT, BlueBERT, CXR-BERT, RadBERT), three local zero-shot LLMs (Qwen2.5-7B, Llama-3.1-8B, Qwen3-8B) | Results reported without reference points |
 | Statistics | Seeds, patient-level bootstrap 95% CIs, paired bootstrap tests, AUPRC, validation-tuned thresholds, weighted-BCE and focal-loss variants, any-error detection, expected PPV at 3–20% error prevalence | Single runs and prevalence-blind metrics |
 
+## Results
+
+Official test split (5,416 reports: 2,708 error-injected reports and their 2,708 original versions), F1 at a threshold of
+0.5, macro averages over the 11 error types with positives. Confidence intervals, paired bootstrap tests, per-type
+results and the secondary analyses are in [`results/tables.md`](results/tables.md) (paired tests against CXR-BERT in
+[`results/tables_cxrbert.md`](results/tables_cxrbert.md)); the prediction files of every run are in `results/runs`
+(no report text).
+
+| Model | Macro-F1 | Macro-AUPRC | Any-error AUROC |
+|---|---|---|---|
+| CXR-BERT | 0.768 | 0.827 | 0.995 |
+| RadBERT | 0.762 | 0.822 | 0.992 |
+| BlueBERT | 0.757 | 0.816 | 0.992 |
+| BioBERT v1.1 (3 seeds) | 0.752 ± 0.003 | 0.814 ± 0.003 | 0.991 ± 0.001 |
+| BiomedBERT | 0.750 | 0.813 | 0.991 |
+| BERT-base-cased | 0.743 | 0.805 | 0.988 |
+| Bio+ClinicalBERT | 0.739 | 0.808 | 0.990 |
+| TF-IDF + LR | 0.494 | 0.578 | 0.918 |
+| Qwen3-8B (zero-shot) | 0.264 | 0.178 | 0.584 |
+| Qwen2.5-7B-Instruct (zero-shot) | 0.246 | 0.170 | 0.647 |
+| Llama-3.1-8B-Instruct (zero-shot) | 0.238 | 0.169 | 0.514 |
+| Report length + LR | 0.001 | 0.161 | 0.573 |
+
+BioBERT trained without error-free controls flags 80% of the original reports (any-error specificity 0.199), although
+on error-injected reports alone it is close to BioBERT trained with controls (macro-F1 0.743 vs. 0.758).
+
 ## Data
 
 ReXErr-v1 is open access under the Open Data Commons Attribution License v1.0. No report text is stored in this
