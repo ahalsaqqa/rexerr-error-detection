@@ -128,7 +128,7 @@ def download_rexerr():
     saved = f"{CACHE}/rexerr-v1-1.0.0.zip"  # verified archive kept between sessions (on Drive in Colab)
     if zips:
         archive = zips[0]
-    elif os.path.exists(saved + ".done"):
+    elif os.path.exists(saved + ".done") and os.path.exists(saved):  # the marker alone is not enough
         archive = saved
     else:
         archive = "/tmp/rexerr-download.zip"  # local disk: resuming a partial file on Drive leaves duplicates
