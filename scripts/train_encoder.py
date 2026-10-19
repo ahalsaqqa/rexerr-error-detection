@@ -153,6 +153,17 @@ def versions():
             "scikit-learn": sklearn.__version__, "numpy": np.__version__}
 
 
+class OrderedEvalTrainer(Trainer):
+    """Length-grouped batches for training only; evaluation and prediction keep dataset order.
+
+    With transformers 5.x, train_sampling_strategy="group_by_length" also reorders Trainer.predict, which would
+    misalign the predictions with the labels when they are saved (see scripts/reorder_predictions.py).
+    """
+
+    def _get_eval_sampler(self, eval_dataset):
+        return torch.utils.data.SequentialSampler(eval_dataset)
+
+
 def training_arguments(**kw):
     """TrainingArguments across transformers 4.x and 5.x (renamed/removed options)."""
     params = inspect.signature(TrainingArguments.__init__).parameters
@@ -245,7 +256,7 @@ def main():
         greater_is_better=True, logging_steps=max(1, eval_steps // 4), report_to="none",
         dataloader_num_workers=args.workers, remove_unused_columns=False, disable_tqdm=True,
     )
-    trainer = Trainer(model=model, args=targs, train_dataset=ds["train"], eval_dataset=ds["val"],
+    trainer = OrderedEvalTrainer(model=model, args=targs, train_dataset=ds["train"], eval_dataset=ds["val"],
                       data_collator=Collator(tok.pad_token_id), compute_metrics=compute_metrics,
                       callbacks=[EarlyStoppingCallback(early_stopping_patience=args.patience)])
     resume = bool(glob.glob(os.path.join(ckpt_dir, "checkpoint-*")))
