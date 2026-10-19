@@ -1,0 +1,391 @@
+{
+  "splits": {
+    "train": {
+      "reports": 201397,
+      "subjects": 62151,
+      "unique_study_ids": 201397,
+      "sentences": 1412160,
+      "studies_with_sentence_labels": 201378
+    },
+    "val": {
+      "reports": 1635,
+      "subjects": 482,
+      "unique_study_ids": 1635,
+      "sentences": 11350,
+      "studies_with_sentence_labels": 1635
+    },
+    "test": {
+      "reports": 2708,
+      "subjects": 289,
+      "unique_study_ids": 2708,
+      "sentences": 19859,
+      "studies_with_sentence_labels": 2708
+    }
+  },
+  "labels": {
+    "train": {
+      "per_type": {
+        "add_medical_device": {
+          "prevalence_sampled": 0.3562168254740637,
+          "prevalence_sentence": 0.32803368471228467,
+          "sampled_confirmed_by_sentence": 0.8800964580923043,
+          "sentence_also_sampled": 0.9557102853250586
+        },
+        "false_prediction": {
+          "prevalence_sampled": 0.3566090855375204,
+          "prevalence_sentence": 0.5975511055278877,
+          "sampled_confirmed_by_sentence": 0.8836535783904205,
+          "sentence_also_sampled": 0.5273505338817566
+        },
+        "false_negation": {
+          "prevalence_sampled": 0.34837658952218753,
+          "prevalence_sentence": 0.38420631886274376,
+          "sampled_confirmed_by_sentence": 0.635657478407115,
+          "sentence_also_sampled": 0.5763782987412442
+        },
+        "add_repetitions": {
+          "prevalence_sampled": 0.2657835022368754,
+          "prevalence_sentence": 0.10168969746321942,
+          "sampled_confirmed_by_sentence": 0.3712636377223136,
+          "sentence_also_sampled": 0.970361328125
+        },
+        "add_contradictions": {
+          "prevalence_sampled": 0.27051048426739227,
+          "prevalence_sentence": 0.0,
+          "sampled_confirmed_by_sentence": 0.0,
+          "sentence_also_sampled": null
+        },
+        "change_name_of_device": {
+          "prevalence_sampled": 0.12711708714628323,
+          "prevalence_sentence": 0.10388436769167365,
+          "sampled_confirmed_by_sentence": 0.5525565407601265,
+          "sentence_also_sampled": 0.676130389064143
+        },
+        "change_position_of_device": {
+          "prevalence_sampled": 0.12827897138487665,
+          "prevalence_sentence": 0.1111982800141015,
+          "sampled_confirmed_by_sentence": 0.6112637894329398,
+          "sentence_also_sampled": 0.7051574012056263
+        },
+        "change_severity": {
+          "prevalence_sampled": 0.2508676891910009,
+          "prevalence_sentence": 0.21591682100527812,
+          "sampled_confirmed_by_sentence": 0.7269614440661863,
+          "sentence_also_sampled": 0.8446360814073819
+        },
+        "change_location": {
+          "prevalence_sampled": 0.2994334573007542,
+          "prevalence_sentence": 0.27895648892485986,
+          "sampled_confirmed_by_sentence": 0.7351960865599867,
+          "sentence_also_sampled": 0.7891635962336021
+        },
+        "change_measurement": {
+          "prevalence_sampled": 0.05154495846512113,
+          "prevalence_sentence": 0.03096371842678888,
+          "sampled_confirmed_by_sentence": 0.5750891050958482,
+          "sentence_also_sampled": 0.9573444515715203
+        },
+        "change_to_homophone": {
+          "prevalence_sampled": 0.27160285406436047,
+          "prevalence_sentence": 0.03729946324920431,
+          "sampled_confirmed_by_sentence": 0.12890310786106032,
+          "sentence_also_sampled": 0.9386315228966986
+        },
+        "add_typo": {
+          "prevalence_sampled": 0.2736584954095642,
+          "prevalence_sentence": 0.35245808030904135,
+          "sampled_confirmed_by_sentence": 0.8078346699568167,
+          "sentence_also_sampled": 0.6272258537135129
+        }
+      },
+      "mean_types_per_report_sampled": 3.0,
+      "mean_types_per_report_sentence": 2.5421581268310547,
+      "exact_agreement_rate": 0.1303991618544467,
+      "reports_with_no_sentence_level_error": 0.002671340685313088,
+      "group6_prevalence_sampled": {
+        "false_findings": 1.0,
+        "incorrect_location": 0.427700012922287,
+        "measurement_error": 0.051500000059604645,
+        "internal_contradiction": 0.2705000042915344,
+        "linguistic_error": 0.7706000208854675,
+        "severity_error": 0.250900000333786
+      },
+      "group6_prevalence_sentence": {
+        "false_findings": 0.9417999982833862,
+        "incorrect_location": 0.3783999979496002,
+        "measurement_error": 0.03099999949336052,
+        "internal_contradiction": 0.0,
+        "linguistic_error": 0.47780001163482666,
+        "severity_error": 0.2159000039100647
+      },
+      "group6_mean_per_report_sampled": 2.7712626457214355,
+      "error_present_counts": {
+        "0.0": 767287,
+        "1.0": 625533,
+        "2.0": 19340
+      }
+    },
+    "val": {
+      "per_type": {
+        "add_medical_device": {
+          "prevalence_sampled": 0.37003058103975534,
+          "prevalence_sentence": 0.3431192660550459,
+          "sampled_confirmed_by_sentence": 0.8909090909090909,
+          "sentence_also_sampled": 0.9607843137254902
+        },
+        "false_prediction": {
+          "prevalence_sampled": 0.3480122324159021,
+          "prevalence_sentence": 0.5620795107033639,
+          "sampled_confirmed_by_sentence": 0.8576449912126538,
+          "sentence_also_sampled": 0.5310119695321001
+        },
+        "false_negation": {
+          "prevalence_sampled": 0.3333333333333333,
+          "prevalence_sentence": 0.3834862385321101,
+          "sampled_confirmed_by_sentence": 0.6697247706422018,
+          "sentence_also_sampled": 0.5821371610845295
+        },
+        "add_repetitions": {
+          "prevalence_sampled": 0.26422018348623855,
+          "prevalence_sentence": 0.1510703363914373,
+          "sampled_confirmed_by_sentence": 0.5555555555555556,
+          "sentence_also_sampled": 0.97165991902834
+        },
+        "add_contradictions": {
+          "prevalence_sampled": 0.2850152905198777,
+          "prevalence_sentence": 0.0,
+          "sampled_confirmed_by_sentence": 0.0,
+          "sentence_also_sampled": null
+        },
+        "change_name_of_device": {
+          "prevalence_sampled": 0.12048929663608562,
+          "prevalence_sentence": 0.11131498470948012,
+          "sampled_confirmed_by_sentence": 0.6040609137055838,
+          "sentence_also_sampled": 0.6538461538461539
+        },
+        "change_position_of_device": {
+          "prevalence_sampled": 0.12782874617737003,
+          "prevalence_sentence": 0.10886850152905199,
+          "sampled_confirmed_by_sentence": 0.6267942583732058,
+          "sentence_also_sampled": 0.7359550561797753
+        },
+        "change_severity": {
+          "prevalence_sampled": 0.25504587155963304,
+          "prevalence_sentence": 0.21896024464831804,
+          "sampled_confirmed_by_sentence": 0.7362110311750599,
+          "sentence_also_sampled": 0.8575418994413407
+        },
+        "change_location": {
+          "prevalence_sampled": 0.30642201834862387,
+          "prevalence_sentence": 0.2801223241590214,
+          "sampled_confirmed_by_sentence": 0.7325349301397206,
+          "sentence_also_sampled": 0.8013100436681223
+        },
+        "change_measurement": {
+          "prevalence_sampled": 0.05932721712538226,
+          "prevalence_sentence": 0.03241590214067278,
+          "sampled_confirmed_by_sentence": 0.5154639175257731,
+          "sentence_also_sampled": 0.9433962264150944
+        },
+        "change_to_homophone": {
+          "prevalence_sampled": 0.25749235474006116,
+          "prevalence_sentence": 0.04220183486238532,
+          "sampled_confirmed_by_sentence": 0.14726840855106887,
+          "sentence_also_sampled": 0.8985507246376812
+        },
+        "add_typo": {
+          "prevalence_sampled": 0.272782874617737,
+          "prevalence_sentence": 0.3412844036697248,
+          "sampled_confirmed_by_sentence": 0.8071748878923767,
+          "sentence_also_sampled": 0.6451612903225806
+        }
+      },
+      "mean_types_per_report_sampled": 3.0,
+      "mean_types_per_report_sentence": 2.574923515319824,
+      "exact_agreement_rate": 0.15902140672782875,
+      "reports_with_no_sentence_level_error": 0.0,
+      "group6_prevalence_sampled": {
+        "false_findings": 1.0,
+        "incorrect_location": 0.4343000054359436,
+        "measurement_error": 0.059300001710653305,
+        "internal_contradiction": 0.2849999964237213,
+        "linguistic_error": 0.756600022315979,
+        "severity_error": 0.2549999952316284
+      },
+      "group6_prevalence_sentence": {
+        "false_findings": 0.9412999749183655,
+        "incorrect_location": 0.3817000091075897,
+        "measurement_error": 0.03240000084042549,
+        "internal_contradiction": 0.0,
+        "linguistic_error": 0.5131000280380249,
+        "severity_error": 0.21899999678134918
+      },
+      "group6_mean_per_report_sampled": 2.7902140617370605,
+      "error_present_counts": {
+        "0.0": 6161,
+        "1.0": 5037,
+        "2.0": 152
+      }
+    },
+    "test": {
+      "per_type": {
+        "add_medical_device": {
+          "prevalence_sampled": 0.34933530280649927,
+          "prevalence_sentence": 0.3249630723781389,
+          "sampled_confirmed_by_sentence": 0.8879492600422833,
+          "sentence_also_sampled": 0.9545454545454546
+        },
+        "false_prediction": {
+          "prevalence_sampled": 0.3489660265878877,
+          "prevalence_sentence": 0.5480059084194978,
+          "sampled_confirmed_by_sentence": 0.8571428571428571,
+          "sentence_also_sampled": 0.545822102425876
+        },
+        "false_negation": {
+          "prevalence_sampled": 0.3245937961595273,
+          "prevalence_sentence": 0.39106351550960117,
+          "sampled_confirmed_by_sentence": 0.6962457337883959,
+          "sentence_also_sampled": 0.5779036827195467
+        },
+        "add_repetitions": {
+          "prevalence_sampled": 0.2533234859675037,
+          "prevalence_sentence": 0.1347858197932053,
+          "sampled_confirmed_by_sentence": 0.5247813411078717,
+          "sentence_also_sampled": 0.9863013698630136
+        },
+        "add_contradictions": {
+          "prevalence_sampled": 0.25258493353028066,
+          "prevalence_sentence": 0.0,
+          "sampled_confirmed_by_sentence": 0.0,
+          "sentence_also_sampled": null
+        },
+        "change_name_of_device": {
+          "prevalence_sampled": 0.1587887740029542,
+          "prevalence_sentence": 0.13700147710487445,
+          "sampled_confirmed_by_sentence": 0.6139534883720931,
+          "sentence_also_sampled": 0.7115902964959568
+        },
+        "change_position_of_device": {
+          "prevalence_sampled": 0.16617429837518463,
+          "prevalence_sentence": 0.1451255539143279,
+          "sampled_confirmed_by_sentence": 0.6155555555555555,
+          "sentence_also_sampled": 0.7048346055979644
+        },
+        "change_severity": {
+          "prevalence_sampled": 0.2788035450516987,
+          "prevalence_sentence": 0.24778434268833088,
+          "sampled_confirmed_by_sentence": 0.7390728476821192,
+          "sentence_also_sampled": 0.8315946348733234
+        },
+        "change_location": {
+          "prevalence_sampled": 0.28729689807976366,
+          "prevalence_sentence": 0.2983751846381093,
+          "sampled_confirmed_by_sentence": 0.7802056555269923,
+          "sentence_also_sampled": 0.7512376237623762
+        },
+        "change_measurement": {
+          "prevalence_sampled": 0.055391432791728215,
+          "prevalence_sentence": 0.024002954209748892,
+          "sampled_confirmed_by_sentence": 0.4,
+          "sentence_also_sampled": 0.9230769230769231
+        },
+        "change_to_homophone": {
+          "prevalence_sampled": 0.25590841949778437,
+          "prevalence_sentence": 0.04357459379615953,
+          "sampled_confirmed_by_sentence": 0.15584415584415584,
+          "sentence_also_sampled": 0.9152542372881356
+        },
+        "add_typo": {
+          "prevalence_sampled": 0.2688330871491876,
+          "prevalence_sentence": 0.32644017725258495,
+          "sampled_confirmed_by_sentence": 0.7664835164835165,
+          "sentence_also_sampled": 0.6312217194570136
+        }
+      },
+      "mean_types_per_report_sampled": 3.0,
+      "mean_types_per_report_sentence": 2.6211225986480713,
+      "exact_agreement_rate": 0.15398818316100443,
+      "reports_with_no_sentence_level_error": 0.0029542097488921715,
+      "group6_prevalence_sampled": {
+        "false_findings": 1.0,
+        "incorrect_location": 0.45350000262260437,
+        "measurement_error": 0.055399999022483826,
+        "internal_contradiction": 0.2526000142097473,
+        "linguistic_error": 0.7651000022888184,
+        "severity_error": 0.27880001068115234
+      },
+      "group6_prevalence_sentence": {
+        "false_findings": 0.9365000128746033,
+        "incorrect_location": 0.4253999888896942,
+        "measurement_error": 0.024000000208616257,
+        "internal_contradiction": 0.0,
+        "linguistic_error": 0.49410000443458557,
+        "severity_error": 0.24779999256134033
+      },
+      "group6_mean_per_report_sampled": 2.805391550064087,
+      "error_present_counts": {
+        "0.0": 10790,
+        "1.0": 8723,
+        "2.0": 346
+      }
+    }
+  },
+  "patient_overlap": {
+    "train_test": 0,
+    "train_val": 0,
+    "val_test": 0
+  },
+  "duplicates": {
+    "test_original_reports_with_identical_text_in_train": 48,
+    "test_reports": 2708
+  },
+  "unchanged_error_reports": {
+    "train": 7,
+    "val": 0,
+    "test": 0
+  },
+  "formatting_shortcut_train": {
+    "original_with_double_space": 0.9087622953668625,
+    "error_with_double_space": 0.6511268787519179,
+    "original_with_trailing_space": 0.11947049856750597,
+    "error_with_trailing_space": 0.14421763978609414,
+    "original_with_newline": 0.0,
+    "error_with_newline": 0.004106317373148557
+  },
+  "lengths_train": {
+    "original_report": {
+      "chars_mean": 400.5387716798165,
+      "chars_median": 362.0,
+      "words_mean": 58.13130284959558,
+      "words_median": 52.0,
+      "words_p05": 23.0,
+      "frac_under_50_words": 0.45391937317834924
+    },
+    "error_report": {
+      "chars_mean": 436.1918052403958,
+      "chars_median": 399.0,
+      "words_mean": 63.96196070447921,
+      "words_median": 58.0,
+      "words_p05": 27.0,
+      "frac_under_50_words": 0.35105289552475955
+    }
+  },
+  "tokens_error_report_train": {
+    "tokenizer": "dmis-lab/biobert-v1.1",
+    "mean": 109.2139,
+    "median": 101.0,
+    "p95": 196.0,
+    "p99": 262.0,
+    "max": 534,
+    "frac_over_256": 0.01115,
+    "frac_over_512": 5e-05
+  },
+  "random_split_leakage": {
+    "test_reports_whose_patient_is_in_train": 0.7989695732477885,
+    "note": "70/15/15 random report-level split, seed 0"
+  },
+  "clinician_review": {
+    "n": 100,
+    "acceptable_rate": 0.83
+  }
+}
