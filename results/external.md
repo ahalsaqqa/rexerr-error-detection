@@ -1,4 +1,4 @@
-## External test set (rule-based errors, one per perturbed report; original reports as controls)
+## Cross-generator test set (rule-based errors, one per perturbed report; original reports as controls)
 
 | Model | Any-error AUROC | Sensitivity at 0.5 | Specificity at 0.5 | Sensitivity / specificity (val threshold, Se 0.90) | Macro type recall |
 |---|---|---|---|---|---|

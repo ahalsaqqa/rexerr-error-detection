@@ -43,7 +43,7 @@ Seed-averaged paired comparisons are in [`results/seed_comparison.md`](results/s
 BioBERT trained without error-free controls flags 80% of the original reports (any-error specificity 0.199), although
 on error-injected reports alone it is close to BioBERT trained with controls (macro-F1 0.743 vs. 0.758).
 
-**External test set.** `scripts/make_external.py` gives each original test report one error produced by a
+**Cross-generator test set.** `scripts/make_external.py` gives each original test report one error produced by a
 deterministic rule (laterality, severity, measurement, negation, homophone, typo, repetition or an inserted device), so
 the error generator differs from GPT-4o. BioBERT and CXR-BERT trained on ReXErr flag only about half of these reports
 (sensitivity 0.50–0.52 at unchanged specificity; any-error AUROC 0.85–0.87 instead of 0.99): see

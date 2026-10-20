@@ -1,4 +1,4 @@
-"""Evaluate runs on the rule-based external test set (scripts/make_external.py).
+"""Evaluate runs on the rule-based cross-generator test set (scripts/make_external.py).
 
 Each perturbed report carries exactly one error, so the question per type is whether that error is found: recall of the
 injected type at 0.5, and whether the report is flagged at all (any-error score >= threshold). Thresholds for the
@@ -57,7 +57,7 @@ def main():
     with open(args.summary, "w") as f:
         json.dump(out, f, indent=1)
     keys = list(out)
-    L = ["## External test set (rule-based errors, one per perturbed report; original reports as controls)\n",
+    L = ["## Cross-generator test set (rule-based errors, one per perturbed report; original reports as controls)\n",
          "| Model | Any-error AUROC | Sensitivity at 0.5 | Specificity at 0.5 | Sensitivity / specificity (val threshold, Se 0.90) | Macro type recall |",
          "|---|---|---|---|---|---|"]
     for k in keys:
