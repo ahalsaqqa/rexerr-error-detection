@@ -11,3 +11,4 @@ results/paraphrase_sentences.csv
 results/paraphrase_control.csv
 label_audit*.xlsx
 *_label_audit*.xlsx
+results/label_audit_key.csv

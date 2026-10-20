@@ -51,7 +51,7 @@ the error generator differs from GPT-4o. BioBERT and CXR-BERT trained on ReXErr 
 
 **Paraphrase control.** `scripts/paraphrase.py` rewords every sentence of the original test reports with Qwen3-8B, `scripts/make_paraphrase_control.py` keeps only rewrites that preserve numbers, sides, negation, uncertainty, severity, devices and placeholders, and builds partially and fully reworded error-free reports, and `scripts/score_encoder.py` scores them with encoders saved by `train_encoder.py`. Rewording raised the share of error-free reports flagged by RadBERT, CXR-BERT and BioBERT only from 2.3–3.5% to 6.8–9.5% (threshold 0.5), against 95–97% of ReXErr error reports: see [`results/paraphrase.md`](results/paraphrase.md). The reworded reports are not distributed.
 
-**Label audit.** `scripts/label_audit.py make` draws a stratified, blinded sample of 250 test sentences (18 per error type, plus sentences labeled unchanged or neutral whose text changed, and attention checks) as an Excel workbook for a radiologist; `scripts/label_audit.py analyze` compares filled workbooks with [`results/label_audit_key.csv`](results/label_audit_key.csv). The workbook contains report text and is not distributed.
+**Label audit.** `scripts/label_audit.py make` draws a stratified, blinded sample of 250 test sentences (18 per error type, plus sentences labeled unchanged or neutral whose text changed, and attention checks) as an Excel workbook for a radiologist; `scripts/label_audit.py analyze` compares filled workbooks with the answer key (`results/label_audit_key.csv`, published after the audit so that the reader stays blinded). The workbook contains report text and is not distributed.
 
 ## Data
 
