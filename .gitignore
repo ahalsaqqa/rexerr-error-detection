@@ -6,3 +6,4 @@ rexerr_experiments/
 results/runs/*/checkpoint-*
 *.zip
 results/error_examples.csv
+results/external_test.csv

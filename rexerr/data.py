@@ -156,3 +156,11 @@ def build_sentence_task(data_dir, split, include_clean=True, max_studies=None, s
     frame = pd.DataFrame(rows, columns=["uid", "study_id", "subject_id", "variant", "position",
                                         "text", "context", "error_present"])
     return frame, to_multihot(label_sets)
+
+
+def build_external_task(path):
+    """External test set written by scripts/make_external.py (one rule-based error per perturbed report)."""
+    df = pd.read_csv(path)
+    sets = [{t} if isinstance(t, str) and t else set() for t in df["error_type"]]
+    frame = df[["uid", "study_id", "subject_id", "variant", "text"]].reset_index(drop=True)
+    return frame, to_multihot(sets)

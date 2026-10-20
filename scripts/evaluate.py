@@ -49,6 +49,8 @@ def display(meta):
         name += " [trained without clean reports]"
     if meta.get("label_source") == "sampled":
         name += " [errors_sampled labels]"
+    if meta.get("shots"):
+        name = name.replace("(zero-shot)", f"({meta['shots']}-shot)")
     if meta.get("loss") in ("weighted", "focal"):
         name += " [weighted BCE]" if meta["loss"] == "weighted" else " [focal loss]"
     tag = (meta.get("args") or {}).get("tag")

@@ -25,7 +25,7 @@ from transformers import (AutoModel, AutoTokenizer, BertModel, BertTokenizerFast
                           TrainingArguments, set_seed)
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from rexerr.data import build_report_task, build_sentence_task  # noqa: E402
+from rexerr.data import build_external_task, build_report_task, build_sentence_task  # noqa: E402
 from rexerr.io import save_predictions  # noqa: E402
 from rexerr.labels import NATIVE  # noqa: E402
 from rexerr.metrics import summary  # noqa: E402
@@ -202,6 +202,7 @@ def main():
     ap.add_argument("--patience", type=int, default=3)
     ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--max_steps", type=int, default=-1, help="debug only")
+    ap.add_argument("--extra_eval", default=None, help="also score the external set from scripts/make_external.py")
     args = ap.parse_args()
 
     ckpt_dir = args.ckpt_dir or args.out_dir
@@ -285,6 +286,10 @@ def main():
     }
     save_predictions(args.out_dir, "val", va, Yva, preds["val"])
     save_predictions(args.out_dir, "test", te, Yte, preds["test"], meta)
+    if args.extra_eval and args.task == "report":
+        ex, Yex = build_external_task(args.extra_eval)
+        ds_ex = EncodedDataset(encode(tok, ex, "report", args.max_len, args.lowercase), Yex)
+        save_predictions(args.out_dir, "external", ex, Yex, sigmoid(trainer.predict(ds_ex).predictions))
     for ck in glob.glob(os.path.join(ckpt_dir, "checkpoint-*")):  # optimizer states are not needed any more
         import shutil
         shutil.rmtree(ck, ignore_errors=True)

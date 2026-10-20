@@ -123,3 +123,16 @@ def test_llm_parse_ignores_reasoning():
         {"change_location", "add_typo"}, True)
     assert parse('{"errors": []}') == (set(), True)
     assert parse("<think> unfinished reasoning") == (set(), False)
+
+
+def test_perturb_rules_change_text_once():
+    from rexerr.perturb import RULES, apply, build
+    text = ("Findings: There is a small left pleural effusion measuring 2.5 cm. No pneumothorax is seen. "
+            "The right lung base is clear. Impression: Mild cardiomegaly.")
+    for name in RULES:
+        new = apply(text, name, 0)
+        assert new is not None and new != text, name
+    assert apply(text, "false_negation", 0) == text.replace("There is a small", "There is no small")
+    assert apply("No change.", "change_measurement", 0) is None
+    kinds = [k for _, k in build([text] * 90, seed=0)]
+    assert max(kinds.count(k) for k in RULES) - min(kinds.count(k) for k in RULES) <= 1
