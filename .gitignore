@@ -9,3 +9,5 @@ results/error_examples.csv
 results/external_test.csv
 results/paraphrase_sentences.csv
 results/paraphrase_control.csv
+label_audit*.xlsx
+*_label_audit*.xlsx
