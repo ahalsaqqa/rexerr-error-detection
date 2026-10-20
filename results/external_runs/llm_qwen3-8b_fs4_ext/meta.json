@@ -1,0 +1,36 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "family": "llm_zeroshot",
+  "task": "report",
+  "seed": 0,
+  "label_source": "sentence",
+  "include_clean": 1,
+  "n_test": 5416,
+  "json_parse_rate": 1.0,
+  "shots": 4,
+  "example_uids": [
+    "58788043_e",
+    "58788043_o",
+    "54870177_o",
+    "52426898_e",
+    "55387796_o",
+    "52426898_o",
+    "55387796_e",
+    "54870177_e"
+  ],
+  "test_set": "external",
+  "runtime_sec": 1298.6132621765137,
+  "args": {
+    "data_dir": "/content/job",
+    "out_dir": "/content/runs/llm_qwen3-8b_fs4_ext",
+    "model": "Qwen/Qwen3-8B",
+    "n_studies": 0,
+    "batch_size": 16,
+    "max_new_tokens": 80,
+    "load_in_4bit": 0,
+    "seed": 0,
+    "shots": 4,
+    "test_csv": "/content/job/external_test.csv"
+  },
+  "gpu": "NVIDIA A100-SXM4-40GB"
+}

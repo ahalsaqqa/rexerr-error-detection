@@ -1,0 +1,36 @@
+{
+  "model": "unsloth/Meta-Llama-3.1-8B-Instruct",
+  "family": "llm_zeroshot",
+  "task": "report",
+  "seed": 0,
+  "label_source": "sentence",
+  "include_clean": 1,
+  "n_test": 5416,
+  "json_parse_rate": 0.9519940915805022,
+  "shots": 4,
+  "example_uids": [
+    "58788043_e",
+    "58788043_o",
+    "54870177_o",
+    "52426898_e",
+    "55387796_o",
+    "52426898_o",
+    "55387796_e",
+    "54870177_e"
+  ],
+  "test_set": "test",
+  "runtime_sec": 1942.5109272003174,
+  "args": {
+    "data_dir": "/content/job",
+    "out_dir": "/content/runs/llm_llama3.1-8b_fs4",
+    "model": "unsloth/Meta-Llama-3.1-8B-Instruct",
+    "n_studies": 0,
+    "batch_size": 16,
+    "max_new_tokens": 80,
+    "load_in_4bit": 0,
+    "seed": 0,
+    "shots": 4,
+    "test_csv": null
+  },
+  "gpu": "NVIDIA A100-SXM4-40GB"
+}

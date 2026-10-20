@@ -1,0 +1,338 @@
+{
+ "biobert_s0_ext": {
+  "name": "BioBERT v1.1",
+  "n": 5416,
+  "any_error": {
+   "at_0.5": {
+    "precision": 0.9387052341597796,
+    "sensitivity": 0.5033234859675036,
+    "f1": 0.6552884615384615,
+    "specificity": 0.9671344165435746,
+    "auroc": 0.8477512196478949,
+    "auprc": 0.8620971571422857,
+    "tp": 1363,
+    "fp": 89,
+    "fn": 1345,
+    "tn": 2619,
+    "threshold": 0.5,
+    "prevalence_in_set": 0.5
+   },
+   "val_sens_0.90": {
+    "precision": 0.969521044992743,
+    "sensitivity": 0.2466765140324963,
+    "f1": 0.3932881954665881,
+    "specificity": 0.992245199409158,
+    "auroc": 0.8477512196478949,
+    "auprc": 0.8620971571422857,
+    "tp": 668,
+    "fp": 21,
+    "fn": 2040,
+    "tn": 2687,
+    "threshold": 0.8856314420700073,
+    "prevalence_in_set": 0.5
+   }
+  },
+  "per_type": {
+   "add_medical_device": {
+    "n": 311,
+    "type_recall": 0.1864951768488746,
+    "flagged": 0.2315112540192926,
+    "most_predicted": "add_medical_device"
+   },
+   "false_prediction": {
+    "n": 310,
+    "type_recall": 0.6774193548387096,
+    "flagged": 0.6838709677419355,
+    "most_predicted": "false_prediction"
+   },
+   "false_negation": {
+    "n": 310,
+    "type_recall": 0.6870967741935484,
+    "flagged": 0.7,
+    "most_predicted": "false_negation"
+   },
+   "add_repetitions": {
+    "n": 310,
+    "type_recall": 0.7225806451612903,
+    "flagged": 0.9290322580645162,
+    "most_predicted": "add_repetitions"
+   },
+   "change_severity": {
+    "n": 311,
+    "type_recall": 0.20257234726688103,
+    "flagged": 0.3279742765273312,
+    "most_predicted": "change_severity"
+   },
+   "change_location": {
+    "n": 310,
+    "type_recall": 0.08709677419354839,
+    "flagged": 0.11935483870967742,
+    "most_predicted": "change_location"
+   },
+   "change_measurement": {
+    "n": 225,
+    "type_recall": 0.0044444444444444444,
+    "flagged": 0.044444444444444446,
+    "most_predicted": "false_prediction"
+   },
+   "change_to_homophone": {
+    "n": 311,
+    "type_recall": 0.3504823151125402,
+    "flagged": 0.8713826366559485,
+    "most_predicted": "add_typo"
+   },
+   "add_typo": {
+    "n": 310,
+    "type_recall": 0.4483870967741935,
+    "flagged": 0.4967741935483871,
+    "most_predicted": "add_typo"
+   }
+  },
+  "macro_type_recall": 0.37406388098155896
+ },
+ "cxrbert_s0_ext": {
+  "name": "CXR-BERT",
+  "n": 5416,
+  "any_error": {
+   "at_0.5": {
+    "precision": 0.9523169912693082,
+    "sensitivity": 0.5236336779911374,
+    "f1": 0.6757207529187514,
+    "specificity": 0.973781388478582,
+    "auroc": 0.8660247333247514,
+    "auprc": 0.8817010303055689,
+    "tp": 1418,
+    "fp": 71,
+    "fn": 1290,
+    "tn": 2637,
+    "threshold": 0.5,
+    "prevalence_in_set": 0.5
+   },
+   "val_sens_0.90": {
+    "precision": 0.9782608695652174,
+    "sensitivity": 0.21602658788774004,
+    "f1": 0.35390199637023595,
+    "specificity": 0.9951994091580503,
+    "auroc": 0.8660247333247514,
+    "auprc": 0.8817010303055689,
+    "tp": 585,
+    "fp": 13,
+    "fn": 2123,
+    "tn": 2695,
+    "threshold": 0.9059898257255554,
+    "prevalence_in_set": 0.5
+   }
+  },
+  "per_type": {
+   "add_medical_device": {
+    "n": 311,
+    "type_recall": 0.2347266881028939,
+    "flagged": 0.2508038585209003,
+    "most_predicted": "add_medical_device"
+   },
+   "false_prediction": {
+    "n": 310,
+    "type_recall": 0.4,
+    "flagged": 0.4161290322580645,
+    "most_predicted": "false_prediction"
+   },
+   "false_negation": {
+    "n": 310,
+    "type_recall": 0.7612903225806451,
+    "flagged": 0.7709677419354839,
+    "most_predicted": "false_negation"
+   },
+   "add_repetitions": {
+    "n": 310,
+    "type_recall": 0.7451612903225806,
+    "flagged": 0.9451612903225807,
+    "most_predicted": "add_repetitions"
+   },
+   "change_severity": {
+    "n": 311,
+    "type_recall": 0.3279742765273312,
+    "flagged": 0.4662379421221865,
+    "most_predicted": "change_severity"
+   },
+   "change_location": {
+    "n": 310,
+    "type_recall": 0.17096774193548386,
+    "flagged": 0.2,
+    "most_predicted": "change_location"
+   },
+   "change_measurement": {
+    "n": 225,
+    "type_recall": 0.008888888888888889,
+    "flagged": 0.06222222222222222,
+    "most_predicted": "change_position_of_device"
+   },
+   "change_to_homophone": {
+    "n": 311,
+    "type_recall": 0.37942122186495175,
+    "flagged": 0.9163987138263665,
+    "most_predicted": "add_typo"
+   },
+   "add_typo": {
+    "n": 310,
+    "type_recall": 0.4967741935483871,
+    "flagged": 0.5580645161290323,
+    "most_predicted": "add_typo"
+   }
+  },
+  "macro_type_recall": 0.39168940264124025
+ },
+ "llm_qwen3-8b_ext": {
+  "name": "Qwen3-8B (zero-shot)",
+  "n": 5416,
+  "any_error": {
+   "at_0.5": {
+    "precision": 0.5378469301934399,
+    "sensitivity": 0.9446085672082718,
+    "f1": 0.6854233654876741,
+    "specificity": 0.1883308714918759,
+    "auroc": 0.5664697193500738,
+    "auprc": 0.5357505345032567,
+    "tp": 2558,
+    "fp": 2198,
+    "fn": 150,
+    "tn": 510,
+    "threshold": 0.5,
+    "prevalence_in_set": 0.5
+   }
+  },
+  "per_type": {
+   "add_medical_device": {
+    "n": 311,
+    "type_recall": 0.16720257234726688,
+    "flagged": 0.9453376205787781,
+    "most_predicted": "change_location"
+   },
+   "false_prediction": {
+    "n": 310,
+    "type_recall": 0.567741935483871,
+    "flagged": 0.9935483870967742,
+    "most_predicted": "change_severity"
+   },
+   "false_negation": {
+    "n": 310,
+    "type_recall": 0.25806451612903225,
+    "flagged": 0.9354838709677419,
+    "most_predicted": "change_severity"
+   },
+   "add_repetitions": {
+    "n": 310,
+    "type_recall": 1.0,
+    "flagged": 1.0,
+    "most_predicted": "add_repetitions"
+   },
+   "change_severity": {
+    "n": 311,
+    "type_recall": 0.819935691318328,
+    "flagged": 0.909967845659164,
+    "most_predicted": "change_severity"
+   },
+   "change_location": {
+    "n": 310,
+    "type_recall": 0.6806451612903226,
+    "flagged": 0.8580645161290322,
+    "most_predicted": "change_severity"
+   },
+   "change_measurement": {
+    "n": 225,
+    "type_recall": 0.17333333333333334,
+    "flagged": 0.9822222222222222,
+    "most_predicted": "change_severity"
+   },
+   "change_to_homophone": {
+    "n": 311,
+    "type_recall": 0.3858520900321543,
+    "flagged": 0.9646302250803859,
+    "most_predicted": "change_location"
+   },
+   "add_typo": {
+    "n": 310,
+    "type_recall": 0.4064516129032258,
+    "flagged": 0.9225806451612903,
+    "most_predicted": "change_severity"
+   }
+  },
+  "macro_type_recall": 0.4954696569819483
+ },
+ "llm_qwen3-8b_fs4_ext": {
+  "name": "Qwen3-8B (4-shot)",
+  "n": 5416,
+  "any_error": {
+   "at_0.5": {
+    "precision": 0.6124927703875073,
+    "sensitivity": 0.7821270310192023,
+    "f1": 0.6869931884528058,
+    "specificity": 0.5051698670605613,
+    "auroc": 0.6436484490398818,
+    "auprc": 0.5879836365143059,
+    "tp": 2118,
+    "fp": 1340,
+    "fn": 590,
+    "tn": 1368,
+    "threshold": 0.5,
+    "prevalence_in_set": 0.5
+   }
+  },
+  "per_type": {
+   "add_medical_device": {
+    "n": 311,
+    "type_recall": 0.40192926045016075,
+    "flagged": 0.7041800643086816,
+    "most_predicted": "change_location"
+   },
+   "false_prediction": {
+    "n": 310,
+    "type_recall": 0.7419354838709677,
+    "flagged": 0.9064516129032258,
+    "most_predicted": "false_prediction"
+   },
+   "false_negation": {
+    "n": 310,
+    "type_recall": 0.4032258064516129,
+    "flagged": 0.6967741935483871,
+    "most_predicted": "false_negation"
+   },
+   "add_repetitions": {
+    "n": 310,
+    "type_recall": 1.0,
+    "flagged": 1.0,
+    "most_predicted": "add_repetitions"
+   },
+   "change_severity": {
+    "n": 311,
+    "type_recall": 0.3665594855305466,
+    "flagged": 0.594855305466238,
+    "most_predicted": "change_severity"
+   },
+   "change_location": {
+    "n": 310,
+    "type_recall": 0.4,
+    "flagged": 0.6064516129032258,
+    "most_predicted": "change_location"
+   },
+   "change_measurement": {
+    "n": 225,
+    "type_recall": 0.31555555555555553,
+    "flagged": 0.8622222222222222,
+    "most_predicted": "change_location"
+   },
+   "change_to_homophone": {
+    "n": 311,
+    "type_recall": 0.2829581993569132,
+    "flagged": 0.8778135048231511,
+    "most_predicted": "add_typo"
+   },
+   "add_typo": {
+    "n": 310,
+    "type_recall": 0.5290322580645161,
+    "flagged": 0.8129032258064516,
+    "most_predicted": "add_typo"
+   }
+  },
+  "macro_type_recall": 0.4934662276978081
+ }
+}

@@ -291,7 +291,7 @@ def main():
     for key, e in runs.items():
         m = e["meta"]
         gid = "|".join(str(m.get(x)) for x in ("model", "task", "label_source", "include_clean", "loss"))
-        gid += "|" + str((m.get("args") or {}).get("tag", ""))
+        gid += "|" + str((m.get("args") or {}).get("tag", "")) + "|" + str(m.get("shots", 0))
         groups[gid].append(key)
     out_groups = {}
     for gid, keys in groups.items():

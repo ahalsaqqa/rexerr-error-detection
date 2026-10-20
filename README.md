@@ -20,27 +20,34 @@ deployment:
 
 Official test split (5,416 reports: 2,708 error-injected reports and their 2,708 original versions), F1 at a threshold of
 0.5, macro averages over the 11 error types with positives. Confidence intervals, paired bootstrap tests, per-type
-results and the secondary analyses are in [`results/tables.md`](results/tables.md) (paired tests against CXR-BERT in
-[`results/tables_cxrbert.md`](results/tables_cxrbert.md)); the prediction files of every run are in `results/runs`
-(no report text).
+results and the secondary analyses are in [`results/tables.md`](results/tables.md); the prediction files of every
+run are in `results/runs` (no report text).
 
 | Model | Macro-F1 | Macro-AUPRC | Any-error AUROC |
 |---|---|---|---|
-| CXR-BERT | 0.768 | 0.827 | 0.995 |
-| RadBERT | 0.762 | 0.822 | 0.992 |
+| RadBERT (3 seeds) | 0.764 ± 0.004 | 0.820 ± 0.004 | 0.992 ± 0.000 |
+| CXR-BERT (3 seeds) | 0.759 ± 0.009 | 0.819 ± 0.008 | 0.994 ± 0.001 |
 | BlueBERT | 0.757 | 0.816 | 0.992 |
 | BioBERT v1.1 (3 seeds) | 0.752 ± 0.003 | 0.814 ± 0.003 | 0.991 ± 0.001 |
 | BiomedBERT | 0.750 | 0.813 | 0.991 |
 | BERT-base-cased | 0.743 | 0.805 | 0.988 |
 | Bio+ClinicalBERT | 0.739 | 0.808 | 0.990 |
 | TF-IDF + LR | 0.494 | 0.578 | 0.918 |
-| Qwen3-8B (zero-shot) | 0.264 | 0.178 | 0.584 |
-| Qwen2.5-7B-Instruct (zero-shot) | 0.246 | 0.170 | 0.647 |
-| Llama-3.1-8B-Instruct (zero-shot) | 0.238 | 0.169 | 0.514 |
+| Qwen3-8B (4-shot / zero-shot) | 0.295 / 0.264 | 0.192 / 0.178 | 0.700 / 0.584 |
+| Qwen2.5-7B-Instruct (4-shot / zero-shot) | 0.278 / 0.246 | 0.194 / 0.170 | 0.759 / 0.647 |
+| Llama-3.1-8B-Instruct (4-shot / zero-shot) | 0.253 / 0.238 | 0.179 / 0.169 | 0.599 / 0.514 |
 | Report length + LR | 0.001 | 0.161 | 0.573 |
+
+Seed-averaged paired comparisons are in [`results/seed_comparison.md`](results/seed_comparison.md).
 
 BioBERT trained without error-free controls flags 80% of the original reports (any-error specificity 0.199), although
 on error-injected reports alone it is close to BioBERT trained with controls (macro-F1 0.743 vs. 0.758).
+
+**External test set.** `scripts/make_external.py` gives each original test report one error produced by a
+deterministic rule (laterality, severity, measurement, negation, homophone, typo, repetition or an inserted device), so
+the error generator differs from GPT-4o. BioBERT and CXR-BERT trained on ReXErr flag only about half of these reports
+(sensitivity 0.50–0.52 at unchanged specificity; any-error AUROC 0.85–0.87 instead of 0.99): see
+[`results/external.md`](results/external.md). The external set is rebuilt from ReXErr and not distributed.
 
 ## Data
 
