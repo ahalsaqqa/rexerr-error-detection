@@ -7,3 +7,5 @@ results/runs/*/checkpoint-*
 *.zip
 results/error_examples.csv
 results/external_test.csv
+results/paraphrase_sentences.csv
+results/paraphrase_control.csv

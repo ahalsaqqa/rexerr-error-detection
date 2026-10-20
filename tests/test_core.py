@@ -136,3 +136,19 @@ def test_perturb_rules_change_text_once():
     assert apply("No change.", "change_measurement", 0) is None
     kinds = [k for _, k in build([text] * 90, seed=0)]
     assert max(kinds.count(k) for k in RULES) - min(kinds.count(k) for k in RULES) <= 1
+
+
+def test_paraphrase_checks_and_sentence_order():
+    import os
+    import sys
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
+    from make_paraphrase_control import check, locate
+    o = "There is a small left pleural effusion measuring 2.5 cm."
+    assert check(o, "A small left-sided pleural effusion measuring 2.5 cm is present.") == []
+    assert check(o, "There is a small right pleural effusion measuring 2.5 cm.") == ["sides"]
+    assert check(o, "There is no small left pleural effusion measuring 2.5 cm.") == ["negation"]
+    assert check(o, "There is a large left pleural effusion measuring 3 cm.") == ["numbers", "severity"]
+    assert check(o, "there is a small left pleural effusion measuring 2.5 cm") == ["unchanged"]
+    text = "No effusion. Heart is normal. No effusion."
+    g = pd.DataFrame({"position": [0, 1, 2], "original": ["Heart is normal.", "No effusion.", "No effusion."]})
+    assert [(b, i) for b, _, i in locate(text, g)] == [(0, 1), (13, 0), (30, 2)]

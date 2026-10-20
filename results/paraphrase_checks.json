@@ -1,0 +1,23 @@
+{
+ "sentences": 17336,
+ "usable": 11681,
+ "usable_frac": 0.6738001845869867,
+ "failed_checks": {
+  "unchanged": 2451,
+  "severity": 1648,
+  "negation": 934,
+  "uncertainty": 411,
+  "numbers": 321,
+  "devices": 69,
+  "sides": 40,
+  "length": 36,
+  "placeholders": 14
+ },
+ "reports": 2708,
+ "reports_used": 2614,
+ "partial_sentences_mean": 2.7027543993879113,
+ "full_sentences_mean": 4.468630451415455,
+ "full_share_of_sentences_reworded": 0.6850265717383062,
+ "word_change_paraphrase_median": 0.25,
+ "word_change_rexerr_error_sentence_median": 0.1428571428571429
+}

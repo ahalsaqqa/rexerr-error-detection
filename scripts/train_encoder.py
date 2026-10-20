@@ -207,6 +207,7 @@ def main():
 
     ckpt_dir = args.ckpt_dir or args.out_dir
     os.makedirs(ckpt_dir, exist_ok=True)
+    os.makedirs(args.out_dir, exist_ok=True)  # the weights are saved before the prediction files create it
     t0 = time.time()
     set_seed(args.seed)
     # bf16 on Ampere or newer GPUs (L4, A100, H100, G4); fp16 on T4

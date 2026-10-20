@@ -1,0 +1,209 @@
+{
+ "biobert_s0_para": {
+  "name": "BioBERT v1.1",
+  "n_studies": 2614,
+  "max_abs_diff_vs_test_scores": 0.014704465866088867,
+  "thresholds": {
+   "0.5": 0.5,
+   "val_sens_0.90": 0.8824278712272644
+  },
+  "0.5": {
+   "flag_rate": {
+    "original": 0.03481254781943382,
+    "para_partial": 0.0692425401683244,
+    "para_full": 0.09487375669472073
+   },
+   "difference": {
+    "para_partial": {
+     "diff": 0.03442999234889059,
+     "ci": [
+      0.02552643253111674,
+      0.044233899658611894
+     ]
+    },
+    "para_full": {
+     "diff": 0.06006120887528692,
+     "ci": [
+      0.04960858241714102,
+      0.07172680354071671
+     ]
+    }
+   },
+   "rexerr_error_reports_flagged": 0.9534711964549483,
+   "rexerr_originals_flagged": 0.03508124076809453
+  },
+  "val_sens_0.90": {
+   "flag_rate": {
+    "original": 0.008798775822494262,
+    "para_partial": 0.01874521805661821,
+    "para_full": 0.028309104820198928
+   },
+   "difference": {
+    "para_partial": {
+     "diff": 0.009946442234123947,
+     "ci": [
+      0.005615123348143356,
+      0.014706542875863962
+     ]
+    },
+    "para_full": {
+     "diff": 0.019510328997704666,
+     "ci": [
+      0.014048681075071371,
+      0.0255275687031483
+     ]
+    }
+   },
+   "rexerr_error_reports_flagged": 0.8888478581979321,
+   "rexerr_originals_flagged": 0.008493353028064993
+  },
+  "mean_score": {
+   "original": 0.05122160539031029,
+   "para_partial": 0.09098465740680695,
+   "para_full": 0.1177942082285881
+  },
+  "types_on_para_full": {
+   "false_prediction": 0.06694720734506504,
+   "false_negation": 0.016832440703902066,
+   "change_location": 0.009946442234123947
+  }
+ },
+ "cxrbert_s0_para": {
+  "name": "CXR-BERT",
+  "n_studies": 2614,
+  "max_abs_diff_vs_test_scores": 0.012328922748565674,
+  "thresholds": {
+   "0.5": 0.5,
+   "val_sens_0.90": 0.9032942056655884
+  },
+  "0.5": {
+   "flag_rate": {
+    "original": 0.023335883703136953,
+    "para_partial": 0.04858454475899005,
+    "para_full": 0.06809487375669472
+   },
+   "difference": {
+    "para_partial": {
+     "diff": 0.0252486610558531,
+     "ci": [
+      0.01800381604696673,
+      0.032752120323671856
+     ]
+    },
+    "para_full": {
+     "diff": 0.04475899005355777,
+     "ci": [
+      0.03568928790811036,
+      0.054459798616985425
+     ]
+    }
+   },
+   "rexerr_error_reports_flagged": 0.9675036927621861,
+   "rexerr_originals_flagged": 0.023633677991137372
+  },
+  "val_sens_0.90": {
+   "flag_rate": {
+    "original": 0.005355776587605203,
+    "para_partial": 0.009563886763580718,
+    "para_full": 0.016449885233358837
+   },
+   "difference": {
+    "para_partial": {
+     "diff": 0.004208110175975516,
+     "ci": [
+      0.0011632701902477562,
+      0.007199486267503494
+     ]
+    },
+    "para_full": {
+     "diff": 0.011094108645753635,
+     "ci": [
+      0.007065212653431282,
+      0.015699907038166476
+     ]
+    }
+   },
+   "rexerr_error_reports_flagged": 0.8870014771048744,
+   "rexerr_originals_flagged": 0.0051698670605613
+  },
+  "mean_score": {
+   "original": 0.034906432032585144,
+   "para_partial": 0.06755232810974121,
+   "para_full": 0.08843451738357544
+  },
+  "types_on_para_full": {
+   "false_prediction": 0.03940321346595256,
+   "false_negation": 0.013771996939556235,
+   "change_location": 0.0076511094108645756
+  }
+ },
+ "radbert_s0_para": {
+  "name": "RadBERT (RoBERTa)",
+  "n_studies": 2614,
+  "max_abs_diff_vs_test_scores": 0.02495795488357544,
+  "thresholds": {
+   "0.5": 0.5,
+   "val_sens_0.90": 0.9046505093574524
+  },
+  "0.5": {
+   "flag_rate": {
+    "original": 0.028309104820198928,
+    "para_partial": 0.047436878347360364,
+    "para_full": 0.07498087222647284
+   },
+   "difference": {
+    "para_partial": {
+     "diff": 0.019127773527161437,
+     "ci": [
+      0.012652673000211865,
+      0.025740120487554287
+     ]
+    },
+    "para_full": {
+     "diff": 0.046671767406273906,
+     "ci": [
+      0.03669603954174572,
+      0.05733167942824719
+     ]
+    }
+   },
+   "rexerr_error_reports_flagged": 0.9593796159527327,
+   "rexerr_originals_flagged": 0.02843426883308715
+  },
+  "val_sens_0.90": {
+   "flag_rate": {
+    "original": 0.00612088752869166,
+    "para_partial": 0.011859219586840091,
+    "para_full": 0.018362662586074982
+   },
+   "difference": {
+    "para_partial": {
+     "diff": 0.005738332058148432,
+     "ci": [
+      0.0021291507415336112,
+      0.009518108607023044
+     ]
+    },
+    "para_full": {
+     "diff": 0.01224177505738332,
+     "ci": [
+      0.007991014407851835,
+      0.0174592501691313
+     ]
+    }
+   },
+   "rexerr_error_reports_flagged": 0.8855243722304283,
+   "rexerr_originals_flagged": 0.006277695716395864
+  },
+  "mean_score": {
+   "original": 0.03829406946897507,
+   "para_partial": 0.06801830232143402,
+   "para_full": 0.09142156690359116
+  },
+  "types_on_para_full": {
+   "false_prediction": 0.041315990818668706,
+   "false_negation": 0.015302218821729151,
+   "change_location": 0.009181331293037491
+  }
+ }
+}

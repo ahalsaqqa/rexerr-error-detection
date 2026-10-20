@@ -49,6 +49,8 @@ the error generator differs from GPT-4o. BioBERT and CXR-BERT trained on ReXErr 
 (sensitivity 0.50–0.52 at unchanged specificity; any-error AUROC 0.85–0.87 instead of 0.99): see
 [`results/external.md`](results/external.md). The external set is rebuilt from ReXErr and not distributed.
 
+**Paraphrase control.** `scripts/paraphrase.py` rewords every sentence of the original test reports with Qwen3-8B, `scripts/make_paraphrase_control.py` keeps only rewrites that preserve numbers, sides, negation, uncertainty, severity, devices and placeholders, and builds partially and fully reworded error-free reports, and `scripts/score_encoder.py` scores them with encoders saved by `train_encoder.py`. Rewording raised the share of error-free reports flagged by RadBERT, CXR-BERT and BioBERT only from 2.3–3.5% to 6.8–9.5% (threshold 0.5), against 95–97% of ReXErr error reports: see [`results/paraphrase.md`](results/paraphrase.md). The reworded reports are not distributed.
+
 ## Data
 
 ReXErr-v1 is open access under the Open Data Commons Attribution License v1.0. No report text is stored in this
