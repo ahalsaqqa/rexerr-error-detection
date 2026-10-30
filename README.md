@@ -1,6 +1,6 @@
 # Error detection in chest X-ray reports: a patient-disjoint benchmark on ReXErr-v1
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23811899.svg)](https://doi.org/10.5281/zenodo.23811899)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23811898.svg)](https://doi.org/10.5281/zenodo.23811898)
 
 Code for the manuscript *Detecting Synthetic Errors in Chest X-Ray Reports: A Patient-Disjoint Benchmark with
 Error-Free Controls* (under review).
@@ -129,8 +129,8 @@ tests/                     unit tests
 
 Until the paper is published, please cite the archived code:
 
-Alsbakhi M, Alsaqqa A, AbuSamra AA. Code and predictions for: Detecting Synthetic Errors in Chest X-Ray Reports: A
-Patient-Disjoint Benchmark with Error-Free Controls (v1.0.0). Zenodo; 2026. https://doi.org/10.5281/zenodo.23811899
+Alsbakhi M, Alsaqqa A, Lubbad M, AbuSamra AA. Code and predictions for: Detecting Synthetic Errors in Chest X-Ray Reports: A
+Patient-Disjoint Benchmark with Error-Free Controls. Zenodo; 2026. https://doi.org/10.5281/zenodo.23811898
 
 ## License
 

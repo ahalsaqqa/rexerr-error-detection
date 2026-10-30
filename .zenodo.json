@@ -5,6 +5,7 @@
   "creators": [
     {"name": "Alsbakhi, Mona", "affiliation": "Faculty of Engineering, Islamic University of Gaza"},
     {"name": "Alsaqqa, Ahmed", "affiliation": "Faculty of Information Technology, Islamic University of Gaza; University of Palestine"},
+    {"name": "Lubbad, Mohammed", "affiliation": "Faculty of Engineering, Islamic University of Gaza"},
     {"name": "AbuSamra, Aiman Ahmed", "affiliation": "Faculty of Engineering, Islamic University of Gaza"}
   ],
   "keywords": ["Radiology report", "Error detection", "Quality assurance", "Natural language processing", "Large language models", "Synthetic data", "ReXErr", "MIMIC-CXR"],
