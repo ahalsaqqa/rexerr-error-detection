@@ -1,6 +1,6 @@
-"""Static figures for the manuscript (PNG, 300 dpi, sized for an IEEE column).
+"""Static figures for the manuscript (PNG at 300 dpi, or vector PDF with --ext pdf for submission).
 
-usage: python scripts/figures.py --results results --runs_dir results/runs
+usage: python scripts/figures.py --results results --runs_dir results/runs [--ext pdf]
 """
 import argparse
 import json
@@ -116,21 +116,22 @@ def main():
     ap.add_argument("--results", default="results")
     ap.add_argument("--runs_dir", default="results/runs")
     ap.add_argument("--compare", default=None, help="run key of the comparison model for the per-type figure")
+    ap.add_argument("--ext", default="png", choices=["png", "pdf"])
     args = ap.parse_args()
     fig_dir = os.path.join(args.results, "figures")
     os.makedirs(fig_dir, exist_ok=True)
 
     with open(os.path.join(args.results, "audit.json")) as f:
-        label_agreement(json.load(f), os.path.join(fig_dir, "fig_label_agreement.png"))
+        label_agreement(json.load(f), os.path.join(fig_dir, f"fig_label_agreement.{args.ext}"))
     path = os.path.join(args.results, "summary.json")
     if os.path.exists(path):
         with open(path) as f:
             summary = json.load(f)
         if summary.get("main_run"):
-            per_type_f1(summary, os.path.join(fig_dir, "fig_per_type_auprc.png"), args.compare)
+            per_type_f1(summary, os.path.join(fig_dir, f"fig_per_type_auprc.{args.ext}"), args.compare)
             keys = [summary["main_run"]] + ([args.compare] if args.compare else [])
-            pr_curves(summary, args.runs_dir, os.path.join(fig_dir, "fig_pr_any_error.png"), keys)
-            ppv_vs_prevalence(summary, os.path.join(fig_dir, "fig_ppv_prevalence.png"))
+            pr_curves(summary, args.runs_dir, os.path.join(fig_dir, f"fig_pr_any_error.{args.ext}"), keys)
+            ppv_vs_prevalence(summary, os.path.join(fig_dir, f"fig_ppv_prevalence.{args.ext}"))
     print("figures in", fig_dir, sorted(os.listdir(fig_dir)))
 
 
