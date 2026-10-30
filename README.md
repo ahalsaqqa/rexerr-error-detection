@@ -1,7 +1,9 @@
 # Error detection in chest X-ray reports: a patient-disjoint benchmark on ReXErr-v1
 
-Code for the manuscript *Multi-Label Error Detection in Chest X-Ray Reports with Fine-Tuned Biomedical Transformers:
-A Patient-Disjoint Benchmark with Error-Free Controls* (under review).
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23811899.svg)](https://doi.org/10.5281/zenodo.23811899)
+
+Code for the manuscript *Detecting Synthetic Errors in Chest X-Ray Reports: A Patient-Disjoint Benchmark with
+Error-Free Controls* (under review).
 
 The repository trains and evaluates report-level error detectors on [ReXErr-v1](https://physionet.org/content/rexerr-v1/1.0.0/),
 a public collection of MIMIC-CXR chest X-ray reports with GPT-4o-injected errors, under a protocol designed to resemble
@@ -125,7 +127,10 @@ tests/                     unit tests
 
 ## Citation
 
-Citation details will be added on publication.
+Until the paper is published, please cite the archived code:
+
+Alsbakhi M, Alsaqqa A, AbuSamra AA. Code and predictions for: Detecting Synthetic Errors in Chest X-Ray Reports: A
+Patient-Disjoint Benchmark with Error-Free Controls (v1.0.0). Zenodo; 2026. https://doi.org/10.5281/zenodo.23811899
 
 ## License
 
