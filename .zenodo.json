@@ -1,0 +1,15 @@
+{
+  "title": "Code and predictions for: Detecting Synthetic Errors in Chest X-Ray Reports: A Patient-Disjoint Benchmark with Error-Free Controls",
+  "description": "Code, configuration, result tables and prediction files for a patient-disjoint benchmark of report-level error detection on ReXErr-v1, in which every error-injected chest X-ray report is paired with its original report as an error-free control. Includes fine-tuned encoders, lexical baselines, locally run LLMs, prevalence-adjusted operating points, a cross-generator test and rewording controls. No report text is included; ReXErr-v1 is available from PhysioNet.",
+  "upload_type": "software",
+  "creators": [
+    {"name": "Alsbakhi, Mona", "affiliation": "Faculty of Engineering, Islamic University of Gaza"},
+    {"name": "Alsaqqa, Ahmed", "affiliation": "Faculty of Information Technology, Islamic University of Gaza; University of Palestine"},
+    {"name": "AbuSamra, Aiman Ahmed", "affiliation": "Faculty of Engineering, Islamic University of Gaza"}
+  ],
+  "keywords": ["Radiology report", "Error detection", "Quality assurance", "Natural language processing", "Large language models", "Synthetic data", "ReXErr", "MIMIC-CXR"],
+  "license": "MIT",
+  "related_identifiers": [
+    {"identifier": "10.13026/9dns-vd94", "relation": "isDerivedFrom", "scheme": "doi"}
+  ]
+}
