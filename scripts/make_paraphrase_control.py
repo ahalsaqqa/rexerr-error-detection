@@ -9,8 +9,12 @@ rewrite, together with the original itself:
   full:    every sentence with a usable rewrite reworded.
 All three are labelled error-free. The output contains report text, so it is not distributed with the code.
 
+With --target errors (sentences from scripts/paraphrase.py --target errors), the erroneous sentences of each
+error-injected report are replaced by their checked rewrites, which keep the error; the report keeps its labels, and
+both the error-injected report and its reworded version are written (variants "error" and "error_reworded").
+
 usage: python scripts/make_paraphrase_control.py --sentences paraphrase_sentences.csv --data_dir DATA \
-           --out paraphrase_control.csv --stats results/paraphrase_checks.json
+           --out paraphrase_control.csv --stats results/paraphrase_checks.json [--target errors]
 """
 import argparse
 import json
@@ -25,6 +29,7 @@ import pandas as pd
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from rexerr.data import build_report_task, load_sentences, normalize_text  # noqa: E402
+from rexerr.labels import NATIVE  # noqa: E402
 
 NEGATION = r"\b(no|not|without|negative|absent|absence|none|neither|nor|free of|cannot|n't)\b"
 UNCERTAIN = r"\b(may|might|could|possibl\w*|probabl\w*|likely|unlikely|suggest\w*|question\w*|concern\w*|" \
@@ -91,12 +96,15 @@ def main():
     ap.add_argument("--stats", required=True)
     ap.add_argument("--k_partial", type=int, default=3)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--target", choices=["originals", "errors"], default="originals")
     args = ap.parse_args()
 
     df = pd.read_csv(args.sentences, keep_default_na=False)
     df["failed"] = [check(o, p) for o, p in zip(df["original"], df["paraphrase"])]
     df["usable"] = [not f for f in df["failed"]]
     fails = Counter(x for f in df["failed"] for x in f)
+    if args.target == "errors":
+        return reword_errors(df, fails, args)
 
     frame, _ = build_report_task(args.data_dir, "test", include_clean=True)
     orig = frame[frame["variant"] == "original"].set_index("study_id")
@@ -140,6 +148,43 @@ def main():
         "word_change_paraphrase_median": float(np.median([word_change(o, p) for o, p, u in
                                                           zip(df["original"], df["paraphrase"], df["usable"]) if u])),
         "word_change_rexerr_error_sentence_median": float(np.median(rexerr_change)),
+    }
+    with open(args.stats, "w") as f:
+        json.dump(stats, f, indent=1)
+    print(f"wrote {args.out}: {len(out)} reports")
+    print(json.dumps(stats, indent=1))
+
+
+def reword_errors(df, fails, args):
+    frame, Y = build_report_task(args.data_dir, "test", include_clean=True)
+    err = frame["variant"] == "error"
+    reports = frame[err].set_index("study_id")
+    labels = {sid: "|".join(NATIVE[j] for j in np.flatnonzero(y)) for sid, y in zip(frame["study_id"][err], Y[err])}
+    rows, n_used, n_all = [], [], []
+    for sid, g in df.groupby("study_id", sort=False):
+        use = g[g["usable"]]
+        if use.empty or not labels.get(sid):
+            continue
+        text, subject = reports.loc[sid, "text"], int(reports.loc[sid, "subject_id"])
+        parts, cursor = [], 0
+        for start, end, i in locate(text, use):
+            parts += [text[cursor:start], use.loc[i, "paraphrase"]]
+            cursor = end
+        rows.append((f"{sid}_e", sid, subject, "error", text, labels[sid]))
+        rows.append((f"{sid}_er", sid, subject, "error_reworded", normalize_text("".join(parts) + text[cursor:]),
+                     labels[sid]))
+        n_used.append(len(use))
+        n_all.append(len(g))
+    out = pd.DataFrame(rows, columns=["uid", "study_id", "subject_id", "variant", "text", "error_type"])
+    out.to_csv(args.out, index=False)
+    stats = {
+        "sentences": len(df), "usable": int(df["usable"].sum()), "usable_frac": float(df["usable"].mean()),
+        "failed_checks": dict(fails.most_common()), "reports": int(df["study_id"].nunique()), "reports_used": len(n_used),
+        "reworded_sentences_per_report_mean": float(np.mean(n_used)),
+        "share_of_eligible_error_sentences_reworded": float(np.sum(n_used) / np.sum(n_all)),
+        "usable_by_type": {k: int(v) for k, v in df[df["usable"]]["error_type"].value_counts().items()},
+        "word_change_paraphrase_median": float(np.median([word_change(o, p) for o, p, u in
+                                                          zip(df["original"], df["paraphrase"], df["usable"]) if u])),
     }
     with open(args.stats, "w") as f:
         json.dump(stats, f, indent=1)

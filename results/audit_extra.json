@@ -1,0 +1,91 @@
+{
+ "train_error_report_empty": 2,
+ "train_error_report_identical": 7,
+ "test_erroneous_sentences_identical_to_original": {
+  "n": 8,
+  "of": 8723,
+  "share": 0.0009171156712140319
+ },
+ "test_unchanged_sentences_that_differ": {
+  "n": 294,
+  "of": 10790,
+  "share": 0.027247451343836885
+ },
+ "test_erroneous_sentences_deleted": {
+  "n": 476,
+  "of": 8723,
+  "share": 0.0545683824372349
+ },
+ "test_deleted_by_type": {
+  "false_negation": 476
+ },
+ "train_error_report_tokens": {
+  "n": 201395,
+  "median": 101.0,
+  "p99": 262.0,
+  "over_320": 0.0026614364805481764,
+  "over_512": 5.958439881824276e-05
+ },
+ "device_statements": {
+  "inserted_by_generator": 67312,
+  "original_mentioning_a_device": 144797,
+  "phrases": {
+   "starts with 'A central venous'": {
+    "inserted": {
+     "n": 12610,
+     "of": 67312,
+     "share": 0.18733658188733063
+    },
+    "original": {
+     "n": 23,
+     "of": 144797,
+     "share": 0.00015884306995310677
+    }
+   },
+   "starts with 'A pacemaker is'": {
+    "inserted": {
+     "n": 7317,
+     "of": 67312,
+     "share": 0.1087027573092465
+    },
+    "original": {
+     "n": 28,
+     "of": 144797,
+     "share": 0.00019337417211682563
+    }
+   },
+   "contains 'is present'": {
+    "inserted": {
+     "n": 16879,
+     "of": 67312,
+     "share": 0.2507576657951034
+    },
+    "original": {
+     "n": 1175,
+     "of": 144797,
+     "share": 0.008114809008473932
+    }
+   }
+  }
+ },
+ "studies_per_patient": {
+  "train": {
+   "studies": 201397,
+   "patients": 62151,
+   "mean": 3.240446654116587,
+   "max": 129
+  },
+  "val": {
+   "studies": 1635,
+   "patients": 482,
+   "mean": 3.392116182572614,
+   "max": 92
+  },
+  "test": {
+   "studies": 2708,
+   "patients": 289,
+   "mean": 9.370242214532873,
+   "max": 73
+  }
+ }
+}

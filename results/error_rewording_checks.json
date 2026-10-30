@@ -1,0 +1,31 @@
+{
+ "sentences": 6609,
+ "usable": 4423,
+ "usable_frac": 0.6692389166288395,
+ "failed_checks": {
+  "unchanged": 1228,
+  "severity": 533,
+  "numbers": 138,
+  "uncertainty": 134,
+  "negation": 126,
+  "devices": 56,
+  "sides": 30,
+  "length": 12,
+  "placeholders": 4
+ },
+ "reports": 2674,
+ "reports_used": 2395,
+ "reworded_sentences_per_report_mean": 1.8467640918580375,
+ "share_of_eligible_error_sentences_reworded": 0.7195379860094355,
+ "usable_by_type": {
+  "false_prediction": 1273,
+  "add_medical_device": 699,
+  "false_negation": 684,
+  "change_location": 662,
+  "change_severity": 408,
+  "change_position_of_device": 342,
+  "change_name_of_device": 300,
+  "change_measurement": 55
+ },
+ "word_change_paraphrase_median": 0.21739130434782605
+}

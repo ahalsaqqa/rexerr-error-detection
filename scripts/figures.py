@@ -94,17 +94,19 @@ def ppv_vs_prevalence(summary, out):
     r = summary["runs"][summary["main_run"]]["report"]["any_error"]
     prev = np.linspace(0.01, 0.30, 60)
     fig, ax = plt.subplots(figsize=(COL_W, 2.2))
-    for s, (key, lab) in enumerate((("val_sens_0.90", "Sensitivity 0.90"), ("val_sens_0.95", "Sensitivity 0.95"))):
+    for s, (key, target) in enumerate((("val_sens_0.90", "0.90"), ("val_sens_0.95", "0.95"))):
         b = r[key]
         ppv = [row["ppv"] for row in prevalence_analysis(b["sensitivity"], b["specificity"], prev)]
-        ax.plot(prev, ppv, color=SERIES[s], linewidth=2, label=f"{lab} (spec. {b['specificity']:.3f})")
+        ax.plot(prev, ppv, color=SERIES[s], linewidth=2,
+                label=f"Target Se {target} (test Se {b['sensitivity']:.3f}, Sp {b['specificity']:.3f})")
     ax.axvspan(0.03, 0.05, color=GRID, zorder=0)
     ax.text(0.04, 0.03, "reported\nerror rate", ha="center", va="bottom", color=INK_2, fontsize=6.5)
     ax.set_xlabel("True prevalence of reports with errors")
     ax.set_ylabel("Positive predictive value")
     ax.xaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0, decimals=0))
     ax.set_ylim(0, 1)
-    ax.legend(loc="lower right")
+    ax.legend(loc="lower right", bbox_to_anchor=(1.0, 0.12), fontsize=6.5, title="Validation operating point",
+              title_fontsize=6.5)
     fig.savefig(out)
     plt.close(fig)
 

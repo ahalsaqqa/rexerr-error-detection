@@ -1,10 +1,11 @@
-"""Zero-shot / few-shot LLM baseline on a patient-level random subset of the test split (GPU).
+"""Zero-shot / few-shot LLM baseline on the test split (GPU).
 
-The LLM runs locally (4-bit), so no report text leaves the machine.
-Outputs are binary (type flagged or not), stored in the common prediction format.
+The LLM runs locally (16-bit; 4-bit only on GPUs with less than 20 GB), so no report text leaves the machine.
+Outputs are binary (type flagged or not), stored in the common prediction format. --n_studies 0 scores the whole test
+split, as in the paper; a positive value scores a patient-level random subset.
 
 usage: python scripts/llm_zeroshot.py --data_dir DATA --out_dir results/runs/llm_qwen2.5-7b \
-           --model Qwen/Qwen2.5-7B-Instruct --n_studies 500
+           --model Qwen/Qwen2.5-7B-Instruct --n_studies 0
        [--shots 4]                       few-shot: 4 training studies, each as error report + original report
        [--test_csv external_test.csv]    score the rule-based external set instead of the test split
 """

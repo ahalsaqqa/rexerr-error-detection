@@ -159,8 +159,11 @@ def build_sentence_task(data_dir, split, include_clean=True, max_studies=None, s
 
 
 def build_external_task(path):
-    """External test set written by scripts/make_external.py (one rule-based error per perturbed report)."""
+    """Report CSV written by scripts/make_external.py or scripts/make_paraphrase_control.py.
+
+    error_type holds the native types of a report separated by "|" (empty for error-free reports).
+    """
     df = pd.read_csv(path)
-    sets = [{t} if isinstance(t, str) and t else set() for t in df["error_type"]]
+    sets = [set(t.split("|")) if isinstance(t, str) and t else set() for t in df["error_type"]]
     frame = df[["uid", "study_id", "subject_id", "variant", "text"]].reset_index(drop=True)
     return frame, to_multihot(sets)
