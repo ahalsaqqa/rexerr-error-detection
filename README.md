@@ -57,7 +57,7 @@ the error generator differs from GPT-4o. BioBERT and CXR-BERT trained on ReXErr 
 
 **Operating points and comparisons.** `scripts/operating_points.py` gives sensitivity by the number of annotated error types, PPV projections with bootstrap CIs (also for reports with a single error and for reworded reports) and single-error results on the cross-generator set ([`results/operating_points.json`](results/operating_points.json)); `scripts/holm_family.py` adjusts the seven encoder comparisons with Holm's method ([`results/holm.json`](results/holm.json)); `scripts/audit_extra.py` adds dataset checks such as deleted erroneous sentences and phrasing traces of inserted devices ([`results/audit_extra.json`](results/audit_extra.json)).
 
-**Label audit.** `scripts/label_audit.py make` draws a stratified, blinded sample of 250 test sentences (18 per error type, plus sentences labeled unchanged or neutral whose text changed, and attention checks) as an Excel workbook for a radiologist; `scripts/label_audit.py analyze` compares filled workbooks with the answer key (`results/label_audit_key.csv`, published after the audit so that the reader stays blinded). The workbook contains report text and is not distributed.
+**Label audit.** `scripts/label_audit.py make` draws a stratified, blinded sample of 250 test sentences (18 per error type, plus sentences labeled unchanged or neutral whose text changed, and attention checks) as an Excel workbook for a radiologist; `scripts/label_audit.py analyze` compares filled workbooks with the answer key (`results/label_audit_key.csv`, published after the audit together with the random sampling seed, so that the reader stays blinded). The workbook contains report text and is not distributed.
 
 ## Data
 
