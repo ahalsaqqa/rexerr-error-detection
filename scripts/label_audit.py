@@ -102,7 +102,13 @@ def lines(text, width):
     return sum(max(1, int(np.ceil(len(p) / width))) for p in str(text).split("\n"))
 
 
-def write_workbook(df, path):
+PURPOSE = ("We are checking whether the automatically assigned error labels of ReXErr, a public dataset of de-identified "
+           "chest X-ray reports (MIMIC-CXR) into which errors were inserted by a language model, are correct. Your answers "
+           "will be compared with these labels; you will not see the labels.")
+
+
+def write_workbook(df, path, title_text="Radiology report error audit", purpose=PURPOSE, extra=None):
+    """extra: optional (header, width, choices, instruction) for one more answer column after Comments."""
     from openpyxl import Workbook
     from openpyxl.comments import Comment
     from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
@@ -119,17 +125,17 @@ def write_workbook(df, path):
     ins.title = "Instructions"
     ins.column_dimensions["A"].width = 30
     ins.column_dimensions["B"].width = 95
+    last_col = "I" if extra else "H"
+    hours = max(1, round(len(df) / 60))
     text = [
-        ("Radiology report error audit", None, title),
-        ("Purpose", "We are checking whether the automatically assigned error labels of ReXErr, a public dataset of "
-                    "de-identified chest X-ray reports (MIMIC-CXR) into which errors were inserted by a language model, "
-                    "are correct. Your answers will be compared with these labels; you will not see the labels.", None),
+        (title_text, None, title),
+        ("Purpose", purpose, None),
         ("What each row shows", "The original report (the reference, assumed to be correct), the sentence of the "
                                 "original report that was modified, if any, and one sentence from the modified report. "
                                 "Words that differ from the original sentence are shown in bold red. \"(new sentence)\" "
                                 "means that the sentence was added to the report.", None),
         ("Your task", "Judge only the modified sentence, compared with the original report. Fill in the yellow cells "
-                      "of the sheet \"Review\" (columns E–H) and please leave the other cells unchanged.", None),
+                      f"of the sheet \"Review\" (columns E–{last_col}) and please leave the other cells unchanged.", None),
         ("Error present? (column E)", "Yes: the sentence states something wrong or misleading compared with the "
                                       "original report (changed finding, negation, location, severity, measurement or "
                                       "device; spelling or speech-recognition error; unnecessary repetition). "
@@ -142,9 +148,10 @@ def write_workbook(df, path):
                                              "a typo whose meaning is obvious). Major: could change patient management "
                                              "or cause harm if not corrected.", None),
         ("Comments (column H)", "Optional, for example why you were unsure.", None),
-        ("Practical notes", f"{len(df)} rows, about 1 minute each (3–4 hours in total); you can stop at any time and "
-                            "continue later; save the file to keep your answers. Please work independently and do not "
-                            "discuss the rows with anyone until you have finished.", None),
+    ] + ([(f"{extra[0]} (column I)", extra[3], None)] if extra else []) + [
+        ("Practical notes", f"{len(df)} rows, about 1 minute each (about {hours} hour{'s' if hours > 1 else ''} in total); "
+                            "you can stop at any time and continue later; save the file to keep your answers. Please work "
+                            "independently and do not discuss the rows with anyone until you have finished.", None),
         ("Error types", None, bold),
     ] + [(NATIVE_DISPLAY[c], DEFINITIONS[c], None) for c in NATIVE] + [
         ("Other", "an error that fits none of the types above", None),
@@ -175,6 +182,8 @@ def write_workbook(df, path):
     rv = wb.create_sheet("Review")
     cols = [("Item", 7), ("Original report (reference)", 60), ("Original sentence", 34), ("Modified sentence", 34),
             ("Error present?", 12), ("Error type", 22), ("Clinical significance", 13), ("Comments", 28)]
+    if extra:
+        cols.append((extra[0], extra[1]))
     for j, (name, w) in enumerate(cols, start=1):
         c = rv.cell(1, j, name)
         c.font, c.fill, c.alignment, c.border = bold, head_fill, Alignment(wrap_text=True, vertical="center"), border
@@ -188,20 +197,22 @@ def write_workbook(df, path):
         for j, v in enumerate(vals, start=1):
             c = rv.cell(i, j, v)
             c.font, c.alignment, c.border = base, wrap, border
-        for j in range(5, 9):
+        for j in range(5, len(cols) + 1):
             c = rv.cell(i, j)
             c.fill, c.border, c.font, c.alignment = input_fill, border, base, wrap
         n = max(lines(x.original_report, 66), lines(x.original_sentence, 36), lines(x.modified_sentence, 36))
         rv.row_dimensions[i].height = 13 * n + 6
     last = len(df) + 1
-    for rng_, opts in ((f"E2:E{last}", ["Yes", "No", "Unsure"]), (f"F2:F{last}", TYPE_CHOICES),
-                       (f"G2:G{last}", ["Minor", "Major"])):
+    lists = [(f"E2:E{last}", ["Yes", "No", "Unsure"]), (f"F2:F{last}", TYPE_CHOICES), (f"G2:G{last}", ["Minor", "Major"])]
+    if extra:
+        lists.append((f"I2:I{last}", extra[2]))
+    for rng_, opts in lists:
         dv = DataValidation(type="list", formula1='"' + ",".join(opts) + '"', allow_blank=True,
                             error="Please choose a value from the list", showErrorMessage=True)
         rv.add_data_validation(dv)
         dv.add(rng_)
     rv.freeze_panes = "B2"
-    rv.auto_filter.ref = f"A1:H{last}"
+    rv.auto_filter.ref = f"A1:{last_col}{last}"
     for ws in (ins, rv):  # printable: one page wide, landscape for the review
         ws.page_setup.orientation = "landscape" if ws is rv else "portrait"
         ws.page_setup.paperSize = ws.PAPERSIZE_A4

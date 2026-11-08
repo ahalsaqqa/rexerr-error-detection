@@ -13,3 +13,6 @@ label_audit*.xlsx
 *_label_audit*.xlsx
 results/label_audit_key.csv
 results/label_audit_seed.txt
+results/rewrite_audit_key.csv
+results/rewrite_audit_seed.txt
+results/label_audit_seed.txt
