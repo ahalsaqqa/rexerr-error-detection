@@ -49,8 +49,12 @@ def averages(d):
     n = np.array([r["n"] for r in rows.values()])
     f1 = np.array([r["f1"] for r in rows.values()])
     keep = np.array([c not in RARE for c in rows])
-    return {"macro_f1": float(f1.mean()), "micro_f1": M._prf(tp, fp, fn)[2],
-            "weighted_f1": float((f1 * n).sum() / n.sum()), "macro_f1_without_rare": float(f1[keep].mean())}
+    pos, s = d["y"].max(1) > 0, M.any_error_score(d["p"])
+    return {"macro_f1": float(f1.mean()), "micro_f1": float(M._prf(tp, fp, fn)[2]),
+            "weighted_f1": float((f1 * n).sum() / n.sum()), "macro_f1_without_rare": float(f1[keep].mean()),
+            "macro_auroc": float(np.mean([r["auroc"] for r in rows.values()])),
+            "macro_auprc": float(np.mean([r["auprc"] for r in rows.values()])),
+            "any_error_auroc": float(M._auroc(pos.astype(int), s))}
 
 
 def any_error(d):
