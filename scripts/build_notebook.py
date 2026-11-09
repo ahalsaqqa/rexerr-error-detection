@@ -31,8 +31,23 @@ in an earlier version are skipped if that version's output is added as an input 
 Times are estimates.
 """
 
-CONFIG = """# Choose which groups to run in this session: "main", "encoders", "extras", "tfidf".
+LAST_TWO_INTRO = """# ReXErr — the last two learning-rate runs (Colab, in the browser)
+
+1. **Runtime → Change runtime type → GPU: L4** (or A100 if offered) → Save.
+2. **Runtime → Run all.** Allow Google Drive access when asked (results are saved to *MyDrive/rexerr_experiments*).
+3. **Keep this tab open** until the last cell prints *finished runs*; about 1.5 hours on an L4, 45 minutes on an A100.
+4. Send *MyDrive/rexerr_experiments/rexerr_results.zip* back (prediction files only, no report text).
+
+If the tab disconnects, run all cells again: finished runs are skipped.
+
+**بالعربي:** من Runtime اختر GPU نوع L4، ثم Run all، واسمح بالوصول لـ Google Drive، **واترك التبويب مفتوحاً** حتى
+تظهر رسالة finished runs (حوالي ساعة ونصف على L4)، ثم أرسل الملف rexerr_results.zip من مجلد rexerr_experiments في Drive.
+"""
+
+CONFIG = """# Choose which groups to run in this session: "main", "encoders", "extras", "tfidf", and for revision 1
+# "seeds" (two more seeds of the encoders trained once) and "lr" (every encoder at learning rate 5e-5, BioBERT at 1e-5).
 RUN_GROUPS = ["main", "encoders"]
+ONLY = []                  # optional: train only these run names, e.g. ["clinicalbert_lr5e-5_s0"]
 EPOCHS = 2
 BATCH_SIZE = 32            # effective batch, identical on every GPU setup so runs are comparable
 UNASSIGN_WHEN_DONE = True  # Colab only: release the runtime after the last cell
@@ -169,6 +184,8 @@ def run(cmd, name=None):
     return True
 
 def train(name, model, extra=""):
+    if ONLY and name not in ONLY:
+        return
     out = f"{RUNS}/{name}"
     if os.path.exists(f"{out}/preds_test.npz"):
         print(f"[skip] {name} already finished"); return
@@ -214,6 +231,20 @@ EXTRAS = """if "extras" in RUN_GROUPS:
         if not os.path.exists(f"{out}/preds_test.npz"):
             run(f"python scripts/llm_zeroshot.py --data_dir {shlex.quote(DATA)} --out_dir {shlex.quote(out)} "
                 f"--model {model} --n_studies {0 if big else 500} --batch_size {16 if big else 8}", key)
+"""
+
+REVISION = """M = {"bert-base-cased": "google-bert/bert-base-cased", "clinicalbert": "emilyalsentzer/Bio_ClinicalBERT",
+     "biomedbert": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+     "cxrbert": "microsoft/BiomedVLP-CXR-BERT-general", "bluebert": "bionlp/bluebert_pubmed_mimic_uncased_L-12_H-768_A-12",
+     "radbert": "UCSD-VA-health/RadBERT-RoBERTa-4m", "biobert": "dmis-lab/biobert-v1.1"}
+if "seeds" in RUN_GROUPS:  # revision 1: three seeds for every encoder (CXR-BERT and RadBERT already had them)
+    for key in ("bert-base-cased", "clinicalbert", "biomedbert", "bluebert"):
+        for seed in (1, 2):
+            train(f"{key}_s{seed}", M[key], f"--seed {seed}")
+if "lr" in RUN_GROUPS:  # revision 1: learning-rate sensitivity (seed 0); results go to results/lr_runs in the repository
+    for key in M:
+        train(f"{key}_lr5e-5_s0", M[key], "--seed 0 --lr 5e-5")
+    train("biobert_lr1e-5_s0", M["biobert"], "--seed 0 --lr 1e-5")
 """
 
 TFIDF = """if "tfidf" in RUN_GROUPS:
@@ -267,7 +298,8 @@ def main():
         cells.append(cell("code", f"%%writefile {{CODE}}/{rel}\n" + body))
     cells += [cell("markdown", "### Data (ReXErr-v1, open access, ODC-By 1.0)\n"), cell("code", DOWNLOAD),
               cell("markdown", "### Experiments\n"), cell("code", RUNNER), cell("code", MAIN), cell("code", ENCODERS),
-              cell("code", EXTRAS), cell("code", TFIDF), cell("markdown", "### Package the results\n"),
+              cell("code", EXTRAS), cell("code", REVISION), cell("code", TFIDF),
+              cell("markdown", "### Package the results\n"),
               cell("code", PACKAGE)]
     nb = {"cells": cells, "metadata": {"accelerator": "GPU", "colab": {"provenance": [], "gpuType": "T4"},
                                        "kaggle": {"accelerator": "nvidiaTeslaT4", "isInternetEnabled": True,
@@ -281,6 +313,20 @@ def main():
     with open(out, "w") as f:
         json.dump(nb, f, indent=1, ensure_ascii=False)
     print("wrote", out, len(cells), "cells")
+
+    # the same notebook preset for the last two learning-rate runs, to run in a Colab browser tab
+    last = json.loads(json.dumps(nb))
+    last["cells"][0] = cell("markdown", LAST_TWO_INTRO)
+    cfg = "".join(last["cells"][1]["source"])
+    cfg = cfg.replace('RUN_GROUPS = ["main", "encoders"]', 'RUN_GROUPS = ["lr"]').replace(
+        "ONLY = []  ", 'ONLY = ["clinicalbert_lr5e-5_s0", "biomedbert_lr5e-5_s0"]  ')
+    assert 'RUN_GROUPS = ["lr"]' in cfg and "biomedbert_lr5e-5_s0" in cfg
+    last["cells"][1]["source"] = cfg.splitlines(True)
+    last["metadata"]["colab"]["gpuType"] = "L4"
+    out2 = os.path.join(ROOT, "notebooks", "colab_last_two_lr_runs.ipynb")
+    with open(out2, "w") as f:
+        json.dump(last, f, indent=1, ensure_ascii=False)
+    print("wrote", out2)
 
 
 if __name__ == "__main__":
