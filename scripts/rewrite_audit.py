@@ -122,7 +122,7 @@ def sample(args):
 def read(path):
     df = pd.read_excel(path, sheet_name="Review", dtype=str).fillna("")
     out = read_sheet(path)
-    out["recognizable"] = df[RECOGNIZABLE[0]] if RECOGNIZABLE[0] in df else ""
+    out["recognizable"] = df.iloc[:, 8].str.strip() if df.shape[1] > 8 else ""  # column I
     return out
 
 

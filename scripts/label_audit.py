@@ -261,10 +261,11 @@ def kappa(a, b):
 
 
 def read_sheet(path):
+    # by position (A, E, F, G, H), so that the reader copies with bilingual headers are read the same way
     df = pd.read_excel(path, sheet_name="Review", dtype=str).fillna("")
-    df = df.rename(columns={"Item": "item", "Error present?": "present", "Error type": "type",
-                            "Clinical significance": "significance", "Comments": "comments"})
-    return df[["item", "present", "type", "significance", "comments"]]
+    out = df.iloc[:, [0, 4, 5, 6, 7]].copy()
+    out.columns = ["item", "present", "type", "significance", "comments"]
+    return out.apply(lambda c: c.str.strip())
 
 
 def analyze(key, sheets):

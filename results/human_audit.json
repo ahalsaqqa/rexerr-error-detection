@@ -1,0 +1,533 @@
+{
+ "readers": {
+  "reader_A": {
+   "specialty": "consultant radiologist",
+   "years_chest_xray": 22
+  },
+  "reader_B": {
+   "specialty": "consultant radiologist",
+   "years_chest_xray": 20
+  }
+ },
+ "label_audit": {
+  "reader_A": {
+   "answered": 250,
+   "unsure": 1,
+   "error_labels_confirmed": {
+    "k": 192,
+    "n": 197,
+    "share": 0.9746192893401016,
+    "ci95": [
+     0.9419706080748756,
+     0.9891113988400265
+    ]
+   },
+   "error_labels_confirmed_weighted": 0.9797906309365021,
+   "per_type_confirmed": {
+    "add_medical_device": {
+     "k": 18,
+     "n": 18
+    },
+    "add_repetitions": {
+     "k": 18,
+     "n": 18
+    },
+    "add_typo": {
+     "k": 17,
+     "n": 18
+    },
+    "change_location": {
+     "k": 17,
+     "n": 18
+    },
+    "change_measurement": {
+     "k": 17,
+     "n": 18
+    },
+    "change_name_of_device": {
+     "k": 17,
+     "n": 18
+    },
+    "change_position_of_device": {
+     "k": 17,
+     "n": 18
+    },
+    "change_severity": {
+     "k": 18,
+     "n": 18
+    },
+    "change_to_homophone": {
+     "k": 18,
+     "n": 18
+    },
+    "false_negation": {
+     "k": 18,
+     "n": 18
+    },
+    "false_prediction": {
+     "k": 17,
+     "n": 17
+    }
+   },
+   "type_agreement": {
+    "k": 154,
+    "n": 192,
+    "kappa": 0.7822869419909286
+   },
+   "significance_of_confirmed": {
+    "Major": 111,
+    "Minor": 81
+   },
+   "changed_judged_erroneous": {
+    "k": 18,
+    "n": 26,
+    "ci95": [
+     0.5001138848576876,
+     0.8349887906020732
+    ]
+   },
+   "neutral_judged_erroneous": {
+    "k": 14,
+    "n": 16,
+    "ci95": [
+     0.6397666856325173,
+     0.9650232506629428
+    ]
+   },
+   "identical_judged_erroneous": {
+    "k": 0,
+    "n": 10,
+    "ci95": [
+     0.0,
+     0.2775401687666166
+    ]
+   }
+  },
+  "reader_B": {
+   "answered": 250,
+   "unsure": 0,
+   "error_labels_confirmed": {
+    "k": 191,
+    "n": 198,
+    "share": 0.9646464646464646,
+    "ci95": [
+     0.928834580484278,
+     0.9827713520885909
+    ]
+   },
+   "error_labels_confirmed_weighted": 0.9706021044689651,
+   "per_type_confirmed": {
+    "add_medical_device": {
+     "k": 18,
+     "n": 18
+    },
+    "add_repetitions": {
+     "k": 18,
+     "n": 18
+    },
+    "add_typo": {
+     "k": 17,
+     "n": 18
+    },
+    "change_location": {
+     "k": 16,
+     "n": 18
+    },
+    "change_measurement": {
+     "k": 17,
+     "n": 18
+    },
+    "change_name_of_device": {
+     "k": 16,
+     "n": 18
+    },
+    "change_position_of_device": {
+     "k": 17,
+     "n": 18
+    },
+    "change_severity": {
+     "k": 18,
+     "n": 18
+    },
+    "change_to_homophone": {
+     "k": 18,
+     "n": 18
+    },
+    "false_negation": {
+     "k": 18,
+     "n": 18
+    },
+    "false_prediction": {
+     "k": 18,
+     "n": 18
+    }
+   },
+   "type_agreement": {
+    "k": 157,
+    "n": 191,
+    "kappa": 0.804503582395087
+   },
+   "significance_of_confirmed": {
+    "Major": 128,
+    "Minor": 63
+   },
+   "changed_judged_erroneous": {
+    "k": 17,
+    "n": 26,
+    "ci95": [
+     0.46220229009632996,
+     0.8058798502714787
+    ]
+   },
+   "neutral_judged_erroneous": {
+    "k": 13,
+    "n": 16,
+    "ci95": [
+     0.5699064013154177,
+     0.9340852122641324
+    ]
+   },
+   "identical_judged_erroneous": {
+    "k": 0,
+    "n": 10,
+    "ci95": [
+     0.0,
+     0.2775401687666166
+    ]
+   }
+  },
+  "inter_rater": {
+   "n": 249,
+   "agreement": 0.9839357429718876,
+   "kappa_error_present": 0.9169723241080362
+  }
+ },
+ "label_audit_agreement_by_stratum": {
+  "changed": {
+   "agree": 25,
+   "n": 26
+  },
+  "error": {
+   "agree": 195,
+   "n": 197
+  },
+  "identical": {
+   "agree": 10,
+   "n": 10
+  },
+  "neutral": {
+   "agree": 15,
+   "n": 16
+  }
+ },
+ "label_audit_reader_type_agreement": {
+  "k": 204,
+  "n": 220,
+  "kappa": 0.92
+ },
+ "unlabeled_changes_population": {
+  "changed_sentences": 294,
+  "neutral_changed_sentences": 344,
+  "test_sentences": 19859
+ },
+ "rewording_audit": {
+  "reader_A": {
+   "answered": 63,
+   "mirror": {
+    "judged_erroneous": {
+     "k": 15,
+     "n": 15,
+     "ci95": [
+      0.7961107336956521,
+      1.0
+     ]
+    },
+    "recognizable_without_original": {
+     "No": 11,
+     "Yes": 4
+    },
+    "significance": {
+     "Major": 10,
+     "Minor": 5
+    },
+    "same_type": {
+     "k": 8,
+     "n": 15
+    }
+   },
+   "paraphrase": {
+    "judged_erroneous": {
+     "k": 0,
+     "n": 30,
+     "ci95": [
+      0.0,
+      0.113517091390478
+     ]
+    },
+    "recognizable_without_original": {},
+    "significance": {},
+    "by_subset": {
+     "paraphrase_flagged": {
+      "k": 0,
+      "n": 15
+     },
+     "paraphrase_random": {
+      "k": 0,
+      "n": 15
+     }
+    }
+   },
+   "rule": {
+    "judged_erroneous": {
+     "k": 18,
+     "n": 18,
+     "ci95": [
+      0.8241154494176252,
+      1.0
+     ]
+    },
+    "recognizable_without_original": {
+     "No": 10,
+     "Yes": 8
+    },
+    "significance": {
+     "Major": 12,
+     "Minor": 6
+    },
+    "same_type": {
+     "k": 17,
+     "n": 18
+    },
+    "by_rule": {
+     "rule:add_medical_device": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 0
+     },
+     "rule:add_repetitions": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 1
+     },
+     "rule:add_typo": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 2
+     },
+     "rule:change_location": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 0
+     },
+     "rule:change_measurement": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 0
+     },
+     "rule:change_severity": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 1
+     },
+     "rule:change_to_homophone": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 2
+     },
+     "rule:false_negation": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 2
+     },
+     "rule:false_prediction": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 0
+     }
+    }
+   }
+  },
+  "reader_B": {
+   "answered": 63,
+   "mirror": {
+    "judged_erroneous": {
+     "k": 13,
+     "n": 15,
+     "ci95": [
+      0.6211750079348376,
+      0.9626395301086407
+     ]
+    },
+    "recognizable_without_original": {
+     "No": 10,
+     "Yes": 3
+    },
+    "significance": {
+     "Major": 12,
+     "Minor": 1
+    },
+    "same_type": {
+     "k": 8,
+     "n": 13
+    }
+   },
+   "paraphrase": {
+    "judged_erroneous": {
+     "k": 0,
+     "n": 30,
+     "ci95": [
+      0.0,
+      0.113517091390478
+     ]
+    },
+    "recognizable_without_original": {},
+    "significance": {},
+    "by_subset": {
+     "paraphrase_flagged": {
+      "k": 0,
+      "n": 15
+     },
+     "paraphrase_random": {
+      "k": 0,
+      "n": 15
+     }
+    }
+   },
+   "rule": {
+    "judged_erroneous": {
+     "k": 18,
+     "n": 18,
+     "ci95": [
+      0.8241154494176252,
+      1.0
+     ]
+    },
+    "recognizable_without_original": {
+     "No": 10,
+     "Yes": 8
+    },
+    "significance": {
+     "Major": 12,
+     "Minor": 6
+    },
+    "same_type": {
+     "k": 16,
+     "n": 18
+    },
+    "by_rule": {
+     "rule:add_medical_device": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 0
+     },
+     "rule:add_repetitions": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 1
+     },
+     "rule:add_typo": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 2
+     },
+     "rule:change_location": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 0
+     },
+     "rule:change_measurement": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 0
+     },
+     "rule:change_severity": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 1
+     },
+     "rule:change_to_homophone": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 2
+     },
+     "rule:false_negation": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 2
+     },
+     "rule:false_prediction": {
+      "erroneous": 2,
+      "n": 2,
+      "recognizable": 0
+     }
+    }
+   }
+  },
+  "inter_rater": {
+   "n": 63,
+   "agreement": 0.9682539682539683,
+   "kappa_error_present": 0.9365558912386708
+  }
+ },
+ "type_sensitivity": {
+  "merged_pairs": [
+   [
+    "change_to_homophone",
+    "add_typo"
+   ],
+   [
+    "false_prediction",
+    "false_negation"
+   ],
+   [
+    "change_position_of_device",
+    "change_name_of_device"
+   ]
+  ],
+  "encoders": {
+   "radbert": {
+    "macro_f1_11": 0.7641767638825838,
+    "macro_f1_merged": 0.783745021131511,
+    "sd_merged": 0.004657201978978379,
+    "n_classes": 8
+   },
+   "cxrbert": {
+    "macro_f1_11": 0.759300251420609,
+    "macro_f1_merged": 0.7844360966476603,
+    "sd_merged": 0.003954561097365376,
+    "n_classes": 8
+   },
+   "bluebert": {
+    "macro_f1_11": 0.7542033499510402,
+    "macro_f1_merged": 0.7736054705276874,
+    "sd_merged": 0.0032515589480591974,
+    "n_classes": 8
+   },
+   "biobert": {
+    "macro_f1_11": 0.7515055807084167,
+    "macro_f1_merged": 0.77627135946859,
+    "sd_merged": 0.0054689075328171405,
+    "n_classes": 8
+   },
+   "biomedbert": {
+    "macro_f1_11": 0.7488497334066286,
+    "macro_f1_merged": 0.7750701145119604,
+    "sd_merged": 0.005370352290823269,
+    "n_classes": 8
+   },
+   "clinicalbert": {
+    "macro_f1_11": 0.7456974139454124,
+    "macro_f1_merged": 0.7673201913570159,
+    "sd_merged": 0.006176616465393974,
+    "n_classes": 8
+   },
+   "bert-base-cased": {
+    "macro_f1_11": 0.744680015128712,
+    "macro_f1_merged": 0.7641234660017747,
+    "sd_merged": 0.0007826447365230115,
+    "n_classes": 8
+   }
+  },
+  "spearman_vs_11_types": 0.8571428571428573
+ }
+}

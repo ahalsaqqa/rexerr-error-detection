@@ -1,0 +1,61 @@
+{
+ "merged_pairs": [
+  [
+   "change_to_homophone",
+   "add_typo"
+  ],
+  [
+   "false_prediction",
+   "false_negation"
+  ],
+  [
+   "change_position_of_device",
+   "change_name_of_device"
+  ]
+ ],
+ "encoders": {
+  "radbert": {
+   "macro_f1_11": 0.7641767638825838,
+   "macro_f1_merged": 0.783745021131511,
+   "sd_merged": 0.004657201978978379,
+   "n_classes": 8
+  },
+  "cxrbert": {
+   "macro_f1_11": 0.759300251420609,
+   "macro_f1_merged": 0.7844360966476603,
+   "sd_merged": 0.003954561097365376,
+   "n_classes": 8
+  },
+  "bluebert": {
+   "macro_f1_11": 0.7542033499510402,
+   "macro_f1_merged": 0.7736054705276874,
+   "sd_merged": 0.0032515589480591974,
+   "n_classes": 8
+  },
+  "biobert": {
+   "macro_f1_11": 0.7515055807084167,
+   "macro_f1_merged": 0.77627135946859,
+   "sd_merged": 0.0054689075328171405,
+   "n_classes": 8
+  },
+  "biomedbert": {
+   "macro_f1_11": 0.7488497334066286,
+   "macro_f1_merged": 0.7750701145119604,
+   "sd_merged": 0.005370352290823269,
+   "n_classes": 8
+  },
+  "clinicalbert": {
+   "macro_f1_11": 0.7456974139454124,
+   "macro_f1_merged": 0.7673201913570159,
+   "sd_merged": 0.006176616465393974,
+   "n_classes": 8
+  },
+  "bert-base-cased": {
+   "macro_f1_11": 0.744680015128712,
+   "macro_f1_merged": 0.7641234660017747,
+   "sd_merged": 0.0007826447365230115,
+   "n_classes": 8
+  }
+ },
+ "spearman_vs_11_types": 0.8571428571428573
+}

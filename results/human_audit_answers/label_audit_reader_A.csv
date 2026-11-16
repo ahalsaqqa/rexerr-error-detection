@@ -1,0 +1,251 @@
+item,present,type,significance
+S001,Yes,Add medical device,Major
+S002,Yes,Change location,Major
+S003,Yes,Add repetitions,Minor
+S004,Yes,Change to homophone,Minor
+S005,Yes,Add typo,Minor
+S006,Yes,Change location,Major
+S007,Yes,Add repetitions,Minor
+S008,Yes,Change name of device,Major
+S009,Yes,Change measurement,Major
+S010,No,,
+S011,Yes,Change name of device,Major
+S012,Yes,Change measurement,Major
+S013,Yes,Add repetitions,Minor
+S014,Yes,False prediction,Major
+S015,No,,
+S016,Yes,Add typo,Minor
+S017,Yes,False prediction,Major
+S018,Yes,False negation,Major
+S019,Yes,Change location,Major
+S020,Yes,Add repetitions,Minor
+S021,Yes,Change location,Minor
+S022,Yes,Change severity,Major
+S023,Yes,Add typo,Minor
+S024,Yes,Add typo,Minor
+S025,Yes,False negation,Major
+S026,Yes,Add repetitions,Minor
+S027,Yes,False negation,Major
+S028,Yes,Change measurement,Minor
+S029,Yes,Change to homophone,Minor
+S030,Yes,Change location,Major
+S031,Yes,Add typo,Minor
+S032,Yes,Change position of device,Minor
+S033,Yes,False prediction,Minor
+S034,No,,
+S035,Yes,Change measurement,Major
+S036,Yes,Add typo,Minor
+S037,Yes,Change location,Major
+S038,Yes,Add medical device,Major
+S039,Yes,Add medical device,Major
+S040,Yes,False negation,Major
+S041,Yes,Add medical device,Major
+S042,Yes,Add typo,Minor
+S043,Yes,Add typo,Minor
+S044,Yes,Add repetitions,Minor
+S045,Yes,False negation,Major
+S046,Yes,Change measurement,Major
+S047,Yes,Change measurement,Major
+S048,Yes,Change location,Major
+S049,Yes,False prediction,Major
+S050,Yes,Change to homophone,Minor
+S051,Yes,Change position of device,Major
+S052,Yes,Change to homophone,Minor
+S053,Yes,False negation,Minor
+S054,Yes,Add typo,Minor
+S055,Yes,False prediction,Major
+S056,Yes,Change location,Major
+S057,Yes,False negation,Major
+S058,No,,
+S059,Yes,Add medical device,Major
+S060,Yes,Change measurement,Major
+S061,Yes,Change severity,Minor
+S062,Yes,Change name of device,Minor
+S063,Yes,Change severity,Major
+S064,Yes,Add medical device,Major
+S065,Yes,Change to homophone,Minor
+S066,Yes,Add typo,Minor
+S067,Yes,Change measurement,Major
+S068,Yes,Change location,Major
+S069,Yes,Change name of device,Major
+S070,Yes,Change severity,Minor
+S071,No,,
+S072,No,,
+S073,Yes,False prediction,Major
+S074,Yes,Change name of device,Major
+S075,Yes,Change severity,Minor
+S076,Yes,Change measurement,Major
+S077,Yes,False negation,Major
+S078,Yes,Add repetitions,Minor
+S079,Yes,False prediction,Major
+S080,Yes,Change name of device,Minor
+S081,Yes,Change measurement,Major
+S082,No,,
+S083,Yes,Change to homophone,Minor
+S084,Yes,Change to homophone,Minor
+S085,Yes,Change position of device,Major
+S086,Yes,Change measurement,Major
+S087,Yes,Add repetitions,Minor
+S088,Yes,Add repetitions,Minor
+S089,Yes,False prediction,Minor
+S090,Yes,False negation,Major
+S091,Yes,Add repetitions,Minor
+S092,Yes,Add repetitions,Minor
+S093,Yes,Change location,Major
+S094,Yes,Change to homophone,Minor
+S095,Yes,False prediction,Major
+S096,Yes,Add typo,Minor
+S097,Yes,Change position of device,Minor
+S098,Yes,Change severity,Major
+S099,Yes,Add typo,Minor
+S100,Yes,Change to homophone,Minor
+S101,Yes,False prediction,Major
+S102,No,,
+S103,Yes,Add medical device,Major
+S104,Yes,Change severity,Minor
+S105,Yes,Change position of device,Major
+S106,Yes,Change position of device,Major
+S107,Yes,False negation,Major
+S108,Yes,Add typo,Minor
+S109,Yes,False prediction,Major
+S110,Yes,Change severity,Minor
+S111,Yes,Change to homophone,Minor
+S112,Yes,Other,Minor
+S113,Yes,Other,Minor
+S114,Yes,Change name of device,Major
+S115,No,,
+S116,Yes,Add medical device,Major
+S117,Yes,Add medical device,Major
+S118,Yes,Change location,Minor
+S119,Yes,Change name of device,Major
+S120,Yes,Add typo,Minor
+S121,Yes,Change location,Major
+S122,No,,
+S123,Yes,Change measurement,Major
+S124,Yes,False prediction,Minor
+S125,Yes,Add repetitions,Minor
+S126,Yes,Change position of device,Minor
+S127,Yes,Change location,Major
+S128,Yes,Change to homophone,Minor
+S129,Yes,Change severity,Minor
+S130,Yes,False negation,Major
+S131,Yes,Change name of device,Major
+S132,Yes,Change severity,Minor
+S133,Yes,Change to homophone,Minor
+S134,Yes,Add medical device,Major
+S135,Yes,Change measurement,Major
+S136,Yes,Add typo,Minor
+S137,Yes,Change name of device,Minor
+S138,No,,
+S139,Yes,Add typo,Minor
+S140,Yes,Add medical device,Major
+S141,Yes,Add repetitions,Minor
+S142,Yes,Add typo,Minor
+S143,Yes,False prediction,Major
+S144,Yes,Change position of device,Major
+S145,Yes,Add repetitions,Minor
+S146,Yes,Add typo,Minor
+S147,Yes,Change measurement,Major
+S148,Yes,False negation,Major
+S149,Yes,Add typo,Minor
+S150,Yes,Add medical device,Major
+S151,Yes,Change name of device,Minor
+S152,Yes,Change severity,Major
+S153,Yes,Add repetitions,Minor
+S154,Yes,Add medical device,Major
+S155,Yes,Change severity,Minor
+S156,Yes,Change location,Major
+S157,Yes,Change severity,Minor
+S158,Yes,False negation,Major
+S159,Yes,False prediction,Major
+S160,No,,
+S161,Yes,Add medical device,Major
+S162,Yes,Add typo,Minor
+S163,Yes,Add medical device,Major
+S164,Yes,Add medical device,Major
+S165,Yes,Change location,Major
+S166,No,,
+S167,Yes,False negation,Major
+S168,Yes,Change location,Major
+S169,Yes,Add typo,Minor
+S170,Yes,Change severity,Minor
+S171,Yes,False negation,Major
+S172,Yes,Change name of device,Major
+S173,Yes,Add medical device,Major
+S174,No,,
+S175,No,,
+S176,Yes,Change severity,Major
+S177,Unsure,,
+S178,Yes,False prediction,Minor
+S179,Yes,False prediction,Major
+S180,Yes,Change severity,Major
+S181,Yes,Add typo,Minor
+S182,Yes,Change position of device,Major
+S183,Yes,Change severity,Minor
+S184,Yes,Change position of device,Major
+S185,Yes,Change measurement,Major
+S186,Yes,Add typo,Minor
+S187,Yes,Change severity,Major
+S188,No,,
+S189,Yes,Change name of device,Major
+S190,Yes,Change measurement,Minor
+S191,Yes,Change position of device,Minor
+S192,No,,
+S193,Yes,False prediction,Major
+S194,Yes,False negation,Major
+S195,Yes,Change name of device,Major
+S196,Yes,Change measurement,Major
+S197,Yes,False negation,Major
+S198,Yes,Add medical device,Major
+S199,No,,
+S200,Yes,False negation,Major
+S201,Yes,Change measurement,Major
+S202,Yes,False negation,Major
+S203,Yes,Change name of device,Major
+S204,Yes,False negation,Major
+S205,Yes,Change severity,Minor
+S206,Yes,Change location,Major
+S207,Yes,Add repetitions,Minor
+S208,Yes,Change name of device,Major
+S209,Yes,Change severity,Minor
+S210,Yes,Change measurement,Major
+S211,Yes,Add repetitions,Minor
+S212,Yes,Change name of device,Major
+S213,Yes,Change severity,Minor
+S214,Yes,False negation,Minor
+S215,Yes,Change measurement,Major
+S216,Yes,Change location,Minor
+S217,No,,
+S218,Yes,Add repetitions,Minor
+S219,Yes,Change measurement,Major
+S220,Yes,Change measurement,Major
+S221,Yes,Change position of device,Major
+S222,Yes,False negation,Minor
+S223,Yes,Add typo,Minor
+S224,Yes,Change name of device,Major
+S225,Yes,Add medical device,Major
+S226,Yes,Change severity,Major
+S227,Yes,Change severity,Minor
+S228,Yes,Change name of device,Major
+S229,Yes,Add typo,Minor
+S230,Yes,Change measurement,Major
+S231,Yes,Add typo,Minor
+S232,Yes,Add typo,Minor
+S233,Yes,False prediction,Major
+S234,No,,
+S235,Yes,False prediction,Major
+S236,No,,
+S237,Yes,False prediction,Major
+S238,Yes,Add repetitions,Minor
+S239,Yes,False negation,Major
+S240,Yes,Add medical device,Major
+S241,No,,
+S242,No,,
+S243,Yes,Change to homophone,Minor
+S244,Yes,Change name of device,Minor
+S245,No,,
+S246,Yes,Change to homophone,Minor
+S247,No,,
+S248,Yes,Change location,Major
+S249,Yes,Change location,Major
+S250,Yes,Add repetitions,Minor

@@ -1,0 +1,64 @@
+item,present,type,significance,recognizable
+R001,Yes,False prediction,Major,No
+R002,Yes,Add typo,Minor,Yes
+R003,No,,,
+R004,Yes,False negation,Major,Yes
+R005,Yes,Add medical device,Major,No
+R006,No,,,
+R007,Yes,Add medical device,Major,No
+R008,Yes,Change position of device,Major,No
+R009,No,,,
+R010,Yes,False prediction,Major,No
+R011,No,,,
+R012,No,,,
+R013,Yes,False negation,Major,Yes
+R014,Yes,Change measurement,Major,No
+R015,Yes,False negation,Major,Yes
+R016,Yes,Change location,Major,No
+R017,Yes,Change location,Minor,No
+R018,Yes,False prediction,Major,No
+R019,Yes,Add repetitions,Minor,Yes
+R020,Yes,False prediction,Major,No
+R021,Yes,Add typo,Minor,Yes
+R022,Yes,Change name of device,Minor,No
+R023,Yes,Add medical device,Major,No
+R024,No,,,
+R025,Yes,Change to homophone,Minor,Yes
+R026,No,,,
+R027,No,,,
+R028,Yes,Change location,Major,Yes
+R029,No,,,
+R030,Yes,Change location,Major,No
+R031,No,,,
+R032,No,,,
+R033,No,,,
+R034,Yes,False negation,Major,No
+R035,No,,,
+R036,Yes,Change severity,Minor,No
+R037,No,,,
+R038,No,,,
+R039,Yes,Change position of device,Major,No
+R040,Yes,Change measurement,Major,No
+R041,Yes,Change severity,Minor,No
+R042,No,,,
+R043,No,,,
+R044,No,,,
+R045,No,,,
+R046,No,,,
+R047,Yes,Change to homophone,Minor,Yes
+R048,Yes,Add repetitions,Minor,Yes
+R049,No,,,
+R050,No,,,
+R051,Yes,False prediction,Major,No
+R052,Yes,False prediction,Major,No
+R053,No,,,
+R054,Yes,Add medical device,Major,No
+R055,No,,,
+R056,Yes,Change severity,Major,Yes
+R057,No,,,
+R058,No,,,
+R059,No,,,
+R060,Yes,Add repetitions,Minor,Yes
+R061,No,,,
+R062,No,,,
+R063,No,,,

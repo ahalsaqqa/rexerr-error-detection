@@ -1,0 +1,154 @@
+{
+ "encoders": {
+  "radbert": {
+   "lr2e-5_s0": {
+    "macro_f1": 0.7617237244812969,
+    "micro_f1": 0.802311969563945,
+    "macro_auprc": 0.8215501405643657,
+    "any_error_auroc": 0.9919932635138821
+   },
+   "lr2e-5_seed_mean_macro_f1": 0.7641767638825838,
+   "lr2e-5_n_seeds": 3,
+   "lr5e-5_s0": {
+    "macro_f1": 0.778477988236611,
+    "micro_f1": 0.8111468695143359,
+    "macro_auprc": 0.8459537413651238,
+    "any_error_auroc": 0.9938989799814542
+   }
+  },
+  "cxrbert": {
+   "lr2e-5_s0": {
+    "macro_f1": 0.7676239497999198,
+    "micro_f1": 0.8069281711665818,
+    "macro_auprc": 0.8269632693995249,
+    "any_error_auroc": 0.9945120820378552
+   },
+   "lr2e-5_seed_mean_macro_f1": 0.759300251420609,
+   "lr2e-5_n_seeds": 3,
+   "lr5e-5_s0": {
+    "macro_f1": 0.7874450523078115,
+    "micro_f1": 0.8204941860465117,
+    "macro_auprc": 0.845433060091786,
+    "any_error_auroc": 0.9946867670321279
+   }
+  },
+  "biobert": {
+   "lr2e-5_s0": {
+    "macro_f1": 0.7521940042215263,
+    "micro_f1": 0.7929586801207925,
+    "macro_auprc": 0.8171566259220703,
+    "any_error_auroc": 0.9909731086019746
+   },
+   "lr2e-5_seed_mean_macro_f1": 0.7515055807084167,
+   "lr2e-5_n_seeds": 3,
+   "lr1e-5_s0": {
+    "macro_f1": 0.7202771456444236,
+    "micro_f1": 0.768833468604737,
+    "macro_auprc": 0.7750250746816626,
+    "any_error_auroc": 0.988432335133366
+   },
+   "lr5e-5_s0": {
+    "macro_f1": 0.7745864468534179,
+    "micro_f1": 0.8089558791248993,
+    "macro_auprc": 0.8383018210694552,
+    "any_error_auroc": 0.9920236731576938
+   }
+  },
+  "bluebert": {
+   "lr2e-5_s0": {
+    "macro_f1": 0.7573493341450696,
+    "micro_f1": 0.7930576070901033,
+    "macro_auprc": 0.8157473122223089,
+    "any_error_auroc": 0.9918990345279005
+   },
+   "lr2e-5_seed_mean_macro_f1": 0.7542033499510402,
+   "lr2e-5_n_seeds": 3,
+   "lr5e-5_s0": {
+    "macro_f1": 0.7709510635431631,
+    "micro_f1": 0.8079508915521777,
+    "macro_auprc": 0.840674309134304,
+    "any_error_auroc": 0.9932444226258659
+   }
+  },
+  "biomedbert": {
+   "lr2e-5_s0": {
+    "macro_f1": 0.7504232103423455,
+    "micro_f1": 0.7918289367330443,
+    "macro_auprc": 0.8130334714422887,
+    "any_error_auroc": 0.9905206458299242
+   },
+   "lr2e-5_seed_mean_macro_f1": 0.7488497334066286,
+   "lr2e-5_n_seeds": 3,
+   "lr5e-5_s0": {
+    "macro_f1": 0.7629053315860035,
+    "micro_f1": 0.8011713030746707,
+    "macro_auprc": 0.8300032914827283,
+    "any_error_auroc": 0.9924736813396607
+   }
+  },
+  "bert-base-cased": {
+   "lr2e-5_s0": {
+    "macro_f1": 0.7425294350997718,
+    "micro_f1": 0.7829406151361669,
+    "macro_auprc": 0.8053659498831611,
+    "any_error_auroc": 0.9884061528391426
+   },
+   "lr2e-5_seed_mean_macro_f1": 0.7446800151287118,
+   "lr2e-5_n_seeds": 3,
+   "lr5e-5_s0": {
+    "macro_f1": 0.7586415951033151,
+    "micro_f1": 0.7960821857279624,
+    "macro_auprc": 0.8224268723606908,
+    "any_error_auroc": 0.990600147275405
+   }
+  },
+  "clinicalbert": {
+   "lr2e-5_s0": {
+    "macro_f1": 0.7394947248950658,
+    "micro_f1": 0.7874972224279683,
+    "macro_auprc": 0.8080077386864368,
+    "any_error_auroc": 0.9902050946380844
+   },
+   "lr2e-5_seed_mean_macro_f1": 0.7456974139454124,
+   "lr2e-5_n_seeds": 3,
+   "lr5e-5_s0": {
+    "macro_f1": 0.761650271615946,
+    "micro_f1": 0.8009119658748254,
+    "macro_auprc": 0.8314750099758009,
+    "any_error_auroc": 0.9913759341078928
+   }
+  }
+ },
+ "rank_agreement": {
+  "encoders": [
+   "radbert",
+   "cxrbert",
+   "biobert",
+   "bluebert",
+   "biomedbert",
+   "bert-base-cased",
+   "clinicalbert"
+  ],
+  "spearman_s0": 0.9285714285714288,
+  "kendall_s0": 0.8095238095238096,
+  "spearman_seed_mean": 0.9285714285714288,
+  "kendall_seed_mean": 0.8095238095238096,
+  "gain_macro_f1": {
+   "radbert": 0.01675426375531408,
+   "cxrbert": 0.019821102507891708,
+   "biobert": 0.022392442631891663,
+   "bluebert": 0.013601729398093565,
+   "biomedbert": 0.012482121243657995,
+   "bert-base-cased": 0.01611216000354332,
+   "clinicalbert": 0.02215554672088016
+  },
+  "range_macro_f1_2e-5_s0": [
+   0.7394947248950658,
+   0.7676239497999198
+  ],
+  "range_macro_f1_5e-5": [
+   0.7586415951033151,
+   0.7874450523078115
+  ]
+ }
+}
